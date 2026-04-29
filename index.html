@@ -6,6 +6,9 @@
   <title>Hotel Caleta Azul — Costa del Pacífico, Guatemala</title>
   <meta name="description" content="Hotel en la costa del Pacífico de Guatemala. Bungalows rodeados de manglar y mar. Pesca deportiva, buceo, ecoturismo y mariscos frescos en Las Lisas, Jutiapa." />
 
+  <link rel="icon" type="image/png" href="images/logo-caleta.png" />
+  <link rel="apple-touch-icon" href="images/logo-caleta.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -80,7 +83,22 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       line-height: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
+    .nav-logo-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      /* mix-blend-mode: screen hace el fondo negro invisible,
+         dejando solo las lineas blancas del logo */
+      mix-blend-mode: screen;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover .nav-logo-img { opacity: 0.85; }
+    .nav-logo-text { display: flex; flex-direction: column; }
     .nav-logo small {
       display: block;
       font-family: var(--sans);
@@ -1276,8 +1294,11 @@
   <nav id="nav">
     <div class="container nav-inner">
       <a href="#hero" class="nav-logo">
-        Caleta Azul
-        <small>Hotel · Pacífico de Guatemala</small>
+        <img src="images/logo-caleta.png" alt="Logo Caleta Azul" class="nav-logo-img" />
+        <span class="nav-logo-text">
+          Caleta Azul
+          <small>Hotel · Pacífico de Guatemala</small>
+        </span>
       </a>
       <ul class="nav-links">
         <li><a href="#sobre">Nosotros</a></li>
