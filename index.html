@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hotel Caleta Azul — Costa del Pacífico, Guatemala</title>
-  <meta name="description" content="Hotel en la costa del Pacífico de Guatemala. Bungalows rodeados de manglar y mar. Pesca deportiva, buceo, ecoturismo y mariscos frescos en Las Lisas, Jutiapa." />
+  <meta name="description" content="Hotel en la costa del Pacífico de Guatemala. Bungalows rodeados de manglar y mar. Pesca deportiva, buceo, ecoturismo y mariscos frescos en Las Lisas, Santa Rosa." />
 
   <link rel="icon" type="image/png" href="images/logo-caleta.png" />
   <link rel="apple-touch-icon" href="images/logo-caleta.png" />
@@ -14,7 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── Reset & Tokens ───────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -32,36 +31,23 @@
       --muted:       #5E5E5E;
       --border:      #D4C9B8;
       --white:       #FAFAF8;
-
       --display: 'Oswald', 'Impact', sans-serif;
       --serif:   'Lora', Georgia, serif;
       --sans:    'DM Sans', system-ui, sans-serif;
-
       --container: 1200px;
       --pad: clamp(4.5rem, 9vw, 8rem);
     }
 
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: var(--sans); color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
     img { display: block; width: 100%; }
     a  { text-decoration: none; color: inherit; }
+    .container { width: min(var(--container), 100% - 2.5rem); margin-inline: auto; }
 
-    .container {
-      width: min(var(--container), 100% - 2.5rem);
-      margin-inline: auto;
-    }
-
-    /* ─── Nav ──────────────────────────────────────────────── */
+    /* ── Nav ── */
     #nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.4rem 0;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100; padding: 1.4rem 0;
       transition: background 0.35s, padding 0.35s;
     }
     #nav.solid {
@@ -69,1249 +55,345 @@
       padding: 0.9rem 0;
       box-shadow: 0 1px 16px rgba(0,0,0,0.3);
     }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 
     .nav-logo {
       font-family: var(--display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--white); letter-spacing: 0.06em;
+      text-transform: uppercase; line-height: 1;
+      display: flex; align-items: center; gap: 0.75rem;
     }
     .nav-logo-img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      /* mix-blend-mode: screen hace el fondo negro invisible,
-         dejando solo las lineas blancas del logo */
-      mix-blend-mode: screen;
-      flex-shrink: 0;
-      transition: opacity 0.2s;
+      width: 48px; height: 48px; object-fit: contain;
+      mix-blend-mode: screen; flex-shrink: 0; transition: opacity 0.2s;
     }
     .nav-logo:hover .nav-logo-img { opacity: 0.85; }
     .nav-logo-text { display: flex; flex-direction: column; }
     .nav-logo small {
-      display: block;
-      font-family: var(--sans);
-      font-size: 0.6rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-top: 3px;
+      display: block; font-family: var(--sans);
+      font-size: 0.6rem; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0.6; margin-top: 3px;
     }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      transition: color 0.2s;
-    }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+    .nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.8); transition: color 0.2s; }
     .nav-links a:hover { color: var(--sand); }
-
-    .nav-cta {
-      background: var(--rust) !important;
-      color: var(--white) !important;
-      padding: 0.5rem 1.3rem !important;
-      transition: background 0.2s !important;
-    }
+    .nav-cta { background: var(--rust) !important; color: var(--white) !important; padding: 0.5rem 1.3rem !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--rust-light) !important; }
 
-    @media (max-width: 820px) {
-      .nav-links { display: none; }
+    /* Language switcher */
+    .lang-switch {
+      display: flex; gap: 2px;
+      background: rgba(255,255,255,0.1);
+      padding: 3px; border-radius: 4px;
     }
+    .lang-btn {
+      font-family: var(--sans); font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); background: transparent;
+      border: none; cursor: pointer; padding: 0.3rem 0.6rem;
+      border-radius: 3px; transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--rust); color: var(--white); }
+    .lang-btn:hover:not(.active) { color: rgba(255,255,255,0.9); }
 
-    /* ─── Hero ─────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      height: 100svh;
-      min-height: 580px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-    }
+    @media (max-width: 820px) { .nav-links { display: none; } }
 
-    .hero-slides {
-      position: absolute;
-      inset: 0;
-    }
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
+    /* ── Hero ── */
+    #hero { position: relative; height: 100svh; min-height: 580px; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-slides { position: absolute; inset: 0; }
+    .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease; }
     .hero-slide.active { opacity: 1; }
+    .hero-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,20,15,0.90) 0%, rgba(10,20,15,0.35) 45%, rgba(10,20,15,0.15) 100%); }
 
-    .hero-grad {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10, 20, 15, 0.90) 0%,
-        rgba(10, 20, 15, 0.35) 45%,
-        rgba(10, 20, 15, 0.15) 100%
-      );
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding-bottom: clamp(4rem, 7vw, 6.5rem);
-      max-width: 820px;
-    }
+    .hero-content { position: relative; z-index: 2; padding-bottom: clamp(4rem, 7vw, 6.5rem); max-width: 820px; }
 
     .hero-label {
-      font-family: var(--sans);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 1.25rem;
-      display: block;
-      opacity: 0;
-      animation: slideUp 0.7s 0.4s forwards;
-    }
-
-    .hero-title {
-      font-family: var(--display);
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-      opacity: 0;
-      animation: slideUp 0.8s 0.55s forwards;
-    }
-    .hero-title span { color: var(--sand); display: block; }
-
-    .hero-sub {
-      font-family: var(--sans);
-      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-      font-weight: 300;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.7;
-      max-width: 500px;
-      margin-bottom: 2.25rem;
-      opacity: 0;
-      animation: slideUp 0.8s 0.7s forwards;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: slideUp 0.8s 0.85s forwards;
-    }
-
-    .btn-rust {
-      background: var(--rust);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.8rem 2rem;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-      transition: background 0.2s;
-    }
-    .btn-rust:hover { background: var(--rust-light); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.8rem 2rem;
-      border: 1px solid rgba(255,255,255,0.4);
-      cursor: pointer;
-      display: inline-block;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--sand); color: var(--sand); }
-
-    /* slide indicator dots */
-    .hero-dots {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      gap: 0.5rem;
-    }
-    .hero-dot {
-      width: 28px;
-      height: 2px;
-      background: rgba(255,255,255,0.35);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .hero-dot.active { background: var(--sand); }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── Wave divider ─────────────────────────────────────── */
-    .wave-divider {
-      display: block;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-    .wave-divider svg { display: block; width: 100%; }
-
-    /* ─── Section utilities ─────────────────────────────────── */
-    .section-eyebrow {
-      font-family: var(--sans);
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-    .section-eyebrow.light { color: var(--sand); }
-
-    .section-title {
-      font-family: var(--display);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      line-height: 1.05;
-      color: var(--forest);
-    }
-    .section-title.light { color: var(--white); }
-    .section-title em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .section-body {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-    }
-    .section-body.light { color: rgba(255,255,255,0.65); }
-
-    .rule {
-      width: 50px;
-      height: 3px;
-      background: var(--rust);
-      margin: 1rem 0 1.5rem;
-    }
-    .rule.sand { background: var(--sand); }
-
-    /* ─── Reveal ────────────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.up { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
-    .d5 { transition-delay: 0.5s; }
-
-    /* ─── Strip (dark stats bar) ───────────────────────────── */
-    .strip {
-      background: var(--forest);
-      padding: 2.25rem 0;
-    }
-    .strip-inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      text-align: center;
-    }
-    .strip-num {
-      font-family: var(--display);
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--sand);
-      letter-spacing: 0.02em;
-      display: block;
-    }
-    .strip-label {
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-top: 0.2rem;
-    }
-    @media (max-width: 560px) { .strip-inner { grid-template-columns: repeat(2,1fr); } }
-
-    /* ─── About ─────────────────────────────────────────────── */
-    #sobre {
-      padding: var(--pad) 0;
-      background: var(--cream);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-media {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 260px 200px;
-      gap: 6px;
-    }
-    .about-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .about-media .img-tall {
-      grid-row: 1 / 3;
-    }
-    .about-media .img-tall img { height: 100%; }
-
-    .pill {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--forest);
-      color: var(--sand);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.9rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .feature-list {
-      margin-top: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .feature-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .feature-line {
-      width: 3px;
-      min-width: 3px;
-      height: 40px;
-      background: var(--rust);
-      margin-top: 3px;
-    }
-    .feature-item strong {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--forest);
-      margin-bottom: 0.2rem;
-    }
-    .feature-item span {
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    @media (max-width: 860px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ─── Bungalows ─────────────────────────────────────────── */
-    #bungalows {
-      padding: var(--pad) 0;
-      background: var(--white);
-    }
-    .bungalows-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: end;
-      margin-bottom: 3.5rem;
-    }
-    .rooms-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-    }
-
-    .room-card { background: var(--cream); overflow: hidden; }
-    .room-img {
-      height: 260px;
-      overflow: hidden;
-    }
-    .room-img img {
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s ease;
-    }
-    .room-card:hover .room-img img { transform: scale(1.04); }
-
-    .room-body { padding: 1.75rem; }
-    .room-eyebrow {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-bottom: 0.4rem;
-    }
-    .room-name {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--forest);
-      margin-bottom: 0.75rem;
-    }
-    .room-desc {
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-    }
-    .room-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-    .room-tag {
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      background: rgba(26,56,40,0.08);
-      color: var(--forest);
-      padding: 0.28rem 0.65rem;
-    }
-    .room-foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border);
-      padding-top: 1.25rem;
-    }
-    .room-price {
-      font-family: var(--display);
-      font-size: 1.2rem;
-      color: var(--ocean);
-      letter-spacing: 0.03em;
-    }
-    .room-price small {
-      display: block;
       font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 0;
-    }
-    .room-cta {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--rust);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: gap 0.2s;
-    }
-    .room-cta:hover { gap: 0.6rem; }
-
-    @media (max-width: 860px) {
-      .rooms-grid { grid-template-columns: 1fr; }
-      .bungalows-header { grid-template-columns: 1fr; gap: 1.5rem; }
-    }
-
-    /* ─── Activities (dark green section) ──────────────────── */
-    #actividades {
-      background: var(--forest);
-      padding: var(--pad) 0;
-      position: relative;
-      overflow: hidden;
-    }
-    #actividades::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/tour-manglar.jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.12;
-    }
-
-    .act-header {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 3.5rem;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .act-grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-    }
-
-    .act-card {
-      position: relative;
-      overflow: hidden;
-      height: 340px;
-      cursor: pointer;
-    }
-    .act-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .act-card:hover img { transform: scale(1.06); }
-
-    .act-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10,25,18,0.85) 0%, rgba(10,25,18,0.1) 55%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.75rem;
-    }
-    .act-name {
-      font-family: var(--display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-    .act-desc {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.55;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    .act-card:hover .act-desc { max-height: 100px; }
-
-    .act-tag {
-      font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 0.5rem;
+      color: var(--white);
+      background: rgba(11, 61, 90, 0.65);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(201, 168, 124, 0.4);
+      padding: 0.45rem 1rem;
+      margin-bottom: 1.4rem;
+      border-radius: 2px;
+      opacity: 0;
+      animation: slideUp 0.7s 0.4s forwards;
     }
+    .hero-label-dot { width: 6px; height: 6px; background: var(--sand); border-radius: 50%; flex-shrink: 0; }
 
-    /* Big feature row below grid */
-    .act-feature-row {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px;
-      margin-top: 3px;
-    }
+    .hero-title { font-family: var(--display); font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 700; color: var(--white); line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; margin-bottom: 1.25rem; opacity: 0; animation: slideUp 0.8s 0.55s forwards; }
+    .hero-title span { color: var(--sand); display: block; }
+    .hero-sub { font-family: var(--sans); font-size: clamp(0.95rem, 1.8vw, 1.1rem); font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 500px; margin-bottom: 2.25rem; opacity: 0; animation: slideUp 0.8s 0.7s forwards; }
+    .hero-buttons { display: flex; gap: 0.9rem; flex-wrap: wrap; opacity: 0; animation: slideUp 0.8s 0.85s forwards; }
+
+    .btn-rust { background: var(--rust); color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.8rem 2rem; border: none; cursor: pointer; display: inline-block; transition: background 0.2s; }
+    .btn-rust:hover { background: var(--rust-light); }
+    .btn-outline { background: transparent; color: var(--white); font-family: var(--sans); font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.8rem 2rem; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: var(--sand); color: var(--sand); }
+
+    .hero-dots { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 0.5rem; }
+    .hero-dot { width: 28px; height: 2px; background: rgba(255,255,255,0.35); cursor: pointer; transition: background 0.3s; }
+    .hero-dot.active { background: var(--sand); }
+
+    @keyframes slideUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    .wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ── Section utils ── */
+    .section-eyebrow { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.6rem; display: block; }
+    .section-eyebrow.light { color: var(--sand); }
+    .section-title { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.05; color: var(--forest); }
+    .section-title.light { color: var(--white); }
+    .section-title em { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    .section-body { font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 520px; }
+    .section-body.light { color: rgba(255,255,255,0.65); }
+    .rule { width: 50px; height: 3px; background: var(--rust); margin: 1rem 0 1.5rem; }
+    .rule.sand { background: var(--sand); }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.up { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; } .d5 { transition-delay: 0.5s; }
+
+    /* ── Strip ── */
+    .strip { background: var(--forest); padding: 2.25rem 0; }
+    .strip-inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; text-align: center; }
+    .strip-num { font-family: var(--display); font-size: 2.4rem; font-weight: 700; color: var(--sand); letter-spacing: 0.02em; display: block; }
+    .strip-label { font-size: 0.68rem; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 0.2rem; }
+    @media (max-width: 560px) { .strip-inner { grid-template-columns: repeat(2,1fr); } }
+
+    /* ── About ── */
+    #sobre { padding: var(--pad) 0; background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-media { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 260px 200px; gap: 6px; }
+    .about-media img { width: 100%; height: 100%; object-fit: cover; }
+    .about-media .img-tall { grid-row: 1/3; }
+    .about-media .img-tall img { height: 100%; }
+    .pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--forest); color: var(--sand); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.9rem; margin-bottom: 1.75rem; }
+    .feature-list { margin-top: 2.25rem; display: flex; flex-direction: column; gap: 1rem; }
+    .feature-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .feature-line { width: 3px; min-width: 3px; height: 40px; background: var(--rust); margin-top: 3px; }
+    .feature-item strong { display: block; font-size: 0.9rem; font-weight: 500; color: var(--forest); margin-bottom: 0.2rem; }
+    .feature-item span { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* ── Bungalows ── */
+    #bungalows { padding: var(--pad) 0; background: var(--white); }
+    .bungalows-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 3.5rem; }
+    .rooms-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .room-card { background: var(--cream); overflow: hidden; }
+    .room-img { height: 260px; overflow: hidden; }
+    .room-img img { height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+    .room-card:hover .room-img img { transform: scale(1.04); }
+    .room-body { padding: 1.75rem; }
+    .room-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.4rem; }
+    .room-name { font-family: var(--display); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.75rem; }
+    .room-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+    .room-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .room-tag { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.04em; background: rgba(26,56,40,0.08); color: var(--forest); padding: 0.28rem 0.65rem; }
+    .room-foot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+    .room-price { font-family: var(--display); font-size: 1.2rem; color: var(--ocean); letter-spacing: 0.03em; }
+    .room-price small { display: block; font-family: var(--sans); font-size: 0.65rem; font-weight: 300; color: var(--muted); letter-spacing: 0; }
+    .room-cta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.2s; }
+    .room-cta:hover { gap: 0.6rem; }
+    @media (max-width: 860px) { .rooms-grid { grid-template-columns: 1fr; } .bungalows-header { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+    /* ── Activities ── */
+    #actividades { background: var(--forest); padding: var(--pad) 0; position: relative; overflow: hidden; }
+    #actividades::before { content: ''; position: absolute; inset: 0; background-image: url('images/tour-manglar.jpg'); background-size: cover; background-position: center; opacity: 0.12; }
+    .act-header { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
+    .act-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .act-card { position: relative; overflow: hidden; height: 340px; cursor: pointer; }
+    .act-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .act-card:hover img { transform: scale(1.06); }
+    .act-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,25,18,0.85) 0%, rgba(10,25,18,0.1) 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.75rem; }
+    .act-name { font-family: var(--display); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 0.4rem; }
+    .act-desc { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.55; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .act-card:hover .act-desc { max-height: 100px; }
+    .act-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand); margin-bottom: 0.5rem; }
+    .act-feature-row { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 3px; }
     .act-card-wide { height: 280px; }
+    @media (max-width: 860px) { .act-grid { grid-template-columns: 1fr 1fr; } .act-feature-row { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .act-grid { grid-template-columns: 1fr; } }
 
-    @media (max-width: 860px) {
-      .act-grid { grid-template-columns: 1fr 1fr; }
-      .act-feature-row { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 560px) {
-      .act-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ─── Restaurant ────────────────────────────────────────── */
-    #restaurante {
-      padding: var(--pad) 0;
-      background: var(--cream);
-    }
-    .rest-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .rest-imgs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-    }
+    /* ── Restaurant ── */
+    #restaurante { padding: var(--pad) 0; background: var(--cream); }
+    .rest-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+    .rest-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
     .rest-img { overflow: hidden; }
-    .rest-img img {
-      height: 220px;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
+    .rest-img img { height: 220px; object-fit: cover; transition: transform 0.5s; }
     .rest-img:hover img { transform: scale(1.04); }
     .rest-img.wide { grid-column: 1/-1; }
     .rest-img.wide img { height: 280px; }
-
     .menu-rows { margin-top: 2rem; }
-    .menu-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .menu-row::before {
-      content: '';
-      width: 8px;
-      height: 1px;
-      background: var(--rust);
-      flex-shrink: 0;
-    }
+    .menu-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
+    .menu-row::before { content: ''; width: 8px; height: 1px; background: var(--rust); flex-shrink: 0; }
+    @media (max-width: 860px) { .rest-layout { grid-template-columns: 1fr; gap: 2.5rem; } }
 
-    @media (max-width: 860px) {
-      .rest-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ─── Amenities strip ───────────────────────────────────── */
-    #servicios {
-      padding: var(--pad) 0;
-      background: var(--ocean);
-    }
+    /* ── Services ── */
+    #servicios { padding: var(--pad) 0; background: var(--ocean); }
     .svc-header { text-align: center; margin-bottom: 3.5rem; }
     .svc-header .rule { margin-inline: auto; }
-
-    .svc-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-    }
-    .svc-card {
-      background: rgba(255,255,255,0.05);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: background 0.25s;
-    }
+    .svc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
+    .svc-card { background: rgba(255,255,255,0.05); padding: 2rem 1.5rem; text-align: center; border: 1px solid rgba(255,255,255,0.06); transition: background 0.25s; }
     .svc-card:hover { background: rgba(255,255,255,0.1); }
-    .svc-icon {
-      font-size: 1rem;
-      font-family: var(--display);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--sand);
-      margin-bottom: 0.75rem;
-    }
-    .svc-name {
-      font-family: var(--display);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-    .svc-desc {
-      font-size: 0.76rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.55;
-    }
-
+    .svc-icon { font-size: 1rem; font-family: var(--display); font-weight: 700; letter-spacing: 0.08em; color: var(--sand); margin-bottom: 0.75rem; }
+    .svc-name { font-family: var(--display); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 0.4rem; }
+    .svc-desc { font-size: 0.76rem; color: rgba(255,255,255,0.5); line-height: 1.55; }
     @media (max-width: 820px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 480px) { .svc-grid { grid-template-columns: 1fr; } }
 
-    /* ─── Como llegar ───────────────────────────────────────── */
-    #como-llegar {
-      padding: var(--pad) 0;
-      background: var(--cream);
-    }
-    .llegar-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
+    /* ── Como Llegar ── */
+    #como-llegar { padding: var(--pad) 0; background: var(--cream); }
+    .llegar-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
     .steps { margin-top: 2.5rem; }
-    .step {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 1.25rem;
-      padding-bottom: 2rem;
-      position: relative;
-    }
-    .step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 21px;
-      top: 44px;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .step-n {
-      width: 44px;
-      height: 44px;
-      background: var(--forest);
-      color: var(--sand);
-      font-family: var(--display);
-      font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .step-head {
-      font-family: var(--display);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--forest);
-      margin-bottom: 0.3rem;
-    }
-    .step-body {
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .step-note {
-      display: inline-block;
-      margin-top: 0.45rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      background: var(--forest);
-      color: var(--sand);
-      padding: 0.22rem 0.65rem;
-      letter-spacing: 0.05em;
-    }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 1.25rem; padding-bottom: 2rem; position: relative; }
+    .step:not(:last-child)::after { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--border); }
+    .step-n { width: 44px; height: 44px; background: var(--forest); color: var(--sand); font-family: var(--display); font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-head { font-family: var(--display); font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.3rem; }
+    .step-body { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+    .step-note { display: inline-block; margin-top: 0.45rem; font-size: 0.72rem; font-weight: 500; background: var(--forest); color: var(--sand); padding: 0.22rem 0.65rem; letter-spacing: 0.05em; }
 
     .contact-box {
       background: var(--forest);
       padding: 2.5rem;
       color: var(--white);
+      border-radius: 16px;
     }
-    .contact-box-title {
-      font-family: var(--display);
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 1.75rem;
-    }
-    .cbox-row {
-      display: flex;
-      gap: 0.9rem;
-      align-items: flex-start;
-      margin-bottom: 1.1rem;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.72);
-    }
-    .cbox-label {
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sand);
-      width: 68px;
-      min-width: 68px;
-      padding-top: 2px;
-    }
+    .contact-box-title { font-family: var(--display); font-size: 1.3rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 1.75rem; }
+    .cbox-row { display: flex; gap: 0.9rem; align-items: flex-start; margin-bottom: 1.1rem; font-size: 0.88rem; color: rgba(255,255,255,0.72); }
+    .cbox-label { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand); width: 68px; min-width: 68px; padding-top: 2px; }
     .cbox-row a { color: rgba(255,255,255,0.85); transition: color 0.2s; }
     .cbox-row a:hover { color: var(--sand); }
-
-    .wa-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #25D366;
-      color: var(--white);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.7rem 1.4rem;
-      margin-top: 1.75rem;
-      transition: background 0.2s;
-    }
+    .wa-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: var(--white); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.7rem 1.4rem; margin-top: 1.75rem; transition: background 0.2s; border-radius: 4px; }
     .wa-btn:hover { background: #1aad54; }
+    @media (max-width: 860px) { .llegar-layout { grid-template-columns: 1fr; gap: 2.5rem; } }
 
-    @media (max-width: 860px) {
-      .llegar-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ─── Gallery ───────────────────────────────────────────── */
-    #galeria {
-      padding: var(--pad) 0;
-      background: var(--white);
-    }
-    .gallery-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 260px 220px;
-      gap: 5px;
-    }
-    .g-item {
-      overflow: hidden;
-      position: relative;
-    }
-    .g-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s ease;
-    }
+    /* ── Gallery ── */
+    #galeria { padding: var(--pad) 0; background: var(--white); }
+    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(12,1fr); grid-template-rows: 260px 220px; gap: 5px; }
+    .g-item { overflow: hidden; position: relative; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
     .g-item:hover img { transform: scale(1.05); }
-    .g-item:nth-child(1) { grid-column: 1/6; }
-    .g-item:nth-child(2) { grid-column: 6/9; }
-    .g-item:nth-child(3) { grid-column: 9/13; }
-    .g-item:nth-child(4) { grid-column: 1/5; }
-    .g-item:nth-child(5) { grid-column: 5/9; }
-    .g-item:nth-child(6) { grid-column: 9/13; }
+    .g-item:nth-child(1) { grid-column: 1/6; } .g-item:nth-child(2) { grid-column: 6/9; } .g-item:nth-child(3) { grid-column: 9/13; }
+    .g-item:nth-child(4) { grid-column: 1/5; } .g-item:nth-child(5) { grid-column: 5/9; } .g-item:nth-child(6) { grid-column: 9/13; }
+    @media (max-width: 700px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } .g-item { grid-column: auto !important; } .g-item img { height: 180px; } }
 
-    @media (max-width: 700px) {
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .g-item { grid-column: auto !important; }
-      .g-item img { height: 180px; }
-    }
-
-    /* ─── Testimonials ──────────────────────────────────────── */
-    #testimonios {
-      padding: var(--pad) 0;
-      background: var(--forest);
-      position: relative;
-      overflow: hidden;
-    }
-    #testimonios::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/playa.jpg');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.08;
-    }
-    .test-inner {
-      position: relative;
-      z-index: 2;
-    }
+    /* ── Testimonials ── */
+    #testimonios { padding: var(--pad) 0; background: var(--forest); position: relative; overflow: hidden; }
+    #testimonios::before { content: ''; position: absolute; inset: 0; background-image: url('images/playa.jpg'); background-size: cover; background-position: center; opacity: 0.08; }
+    .test-inner { position: relative; z-index: 2; }
     .test-header { text-align: center; margin-bottom: 3.5rem; }
-    .test-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-    }
-    .test-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 2.25rem;
-    }
-    .test-stars {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      color: var(--sand);
-      margin-bottom: 1.25rem;
-    }
-    .test-quote {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.98rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 1.5rem;
-    }
-    .test-author {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--sand);
-      letter-spacing: 0.05em;
-    }
-    .test-origin {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.4);
-    }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+    .test-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); padding: 2.25rem; }
+    .test-stars { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--sand); margin-bottom: 1.25rem; }
+    .test-quote { font-family: var(--serif); font-style: italic; font-size: 0.98rem; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 1.5rem; }
+    .test-author { font-size: 0.78rem; font-weight: 500; color: var(--sand); letter-spacing: 0.05em; }
+    .test-origin { font-size: 0.7rem; color: rgba(255,255,255,0.4); }
     @media (max-width: 768px) { .test-grid { grid-template-columns: 1fr; } }
 
-    /* ─── CTA Banner ─────────────────────────────────────────── */
-    #cta-band {
-      position: relative;
-      padding: 7rem 0;
-      overflow: hidden;
-      text-align: center;
-    }
-    #cta-band .bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/portada4.jpg');
-      background-size: cover;
-      background-position: center 40%;
-    }
-    #cta-band .bg-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(12, 50, 73, 0.78);
-    }
-    .cta-inner {
-      position: relative;
-      z-index: 2;
-    }
-    .cta-title {
-      font-family: var(--display);
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-    .cta-title em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
-      text-transform: none;
-    }
-    .cta-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 2.5rem;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-white {
-      background: var(--white);
-      color: var(--forest);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.85rem 2.25rem;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-      transition: background 0.2s;
-    }
+    /* ── CTA ── */
+    #cta-band { position: relative; padding: 7rem 0; overflow: hidden; text-align: center; }
+    #cta-band .bg { position: absolute; inset: 0; background-image: url('images/portada4.jpg'); background-size: cover; background-position: center 40%; }
+    #cta-band .bg-overlay { position: absolute; inset: 0; background: rgba(12,50,73,0.78); }
+    .cta-inner { position: relative; z-index: 2; }
+    .cta-title { font-family: var(--display); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-title em { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; }
+    .cta-sub { font-size: 1rem; color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--forest); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2.25rem; border: none; cursor: pointer; display: inline-block; transition: background 0.2s; }
     .btn-white:hover { background: var(--sand-light); }
 
-    /* ─── Footer ─────────────────────────────────────────────── */
-    footer {
-      background: var(--dark);
-      padding: 4rem 0 2rem;
-    }
-    .foot-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .foot-brand-name {
-      font-family: var(--display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--white);
-    }
-    .foot-brand-name small {
-      display: block;
-      font-family: var(--sans);
-      font-size: 0.58rem;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.4);
-      margin-top: 3px;
-    }
-    .foot-desc {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.7;
-      margin-top: 0.85rem;
-      max-width: 250px;
-    }
-    .foot-socials {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-    }
-    .foot-social {
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.5);
-      transition: border-color 0.2s, color 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
+    /* ── Footer ── */
+    footer { background: var(--dark); padding: 4rem 0 2rem; }
+    .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .foot-brand-name { font-family: var(--display); font-size: 1.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+    .foot-brand-name small { display: block; font-family: var(--sans); font-size: 0.58rem; font-weight: 300; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-top: 3px; }
+    .foot-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 0.85rem; max-width: 250px; }
+    .foot-socials { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+    .foot-social { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.5); transition: border-color 0.2s, color 0.2s; text-transform: uppercase; }
     .foot-social:hover { border-color: var(--sand); color: var(--sand); }
-
-    .foot-col h4 {
-      font-family: var(--display);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 1.25rem;
-    }
+    .foot-col h4 { font-family: var(--display); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); margin-bottom: 1.25rem; }
     .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .foot-links a {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
-      transition: color 0.2s;
-    }
+    .foot-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
     .foot-links a:hover { color: rgba(255,255,255,0.85); }
-
-    .foot-contact-row {
-      display: flex;
-      gap: 0.6rem;
-      margin-bottom: 0.75rem;
-      align-items: flex-start;
-    }
-    .fclabel {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--sand);
-      width: 44px;
-      min-width: 44px;
-      padding-top: 2px;
-    }
-    .foot-contact-row a,
-    .foot-contact-row span {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.2s;
-    }
+    .foot-contact-row { display: flex; gap: 0.6rem; margin-bottom: 0.75rem; align-items: flex-start; }
+    .fclabel { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); width: 44px; min-width: 44px; padding-top: 2px; }
+    .foot-contact-row a, .foot-contact-row span { font-size: 0.8rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
     .foot-contact-row a:hover { color: rgba(255,255,255,0.85); }
-
-    .foot-bottom {
-      padding-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
+    .foot-bottom { padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 0.5rem; }
     @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .foot-grid { grid-template-columns: 1fr; } }
 
-    /* ─── Booking Modal ─────────────────────────────────────── */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 18, 14, 0.78);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
+    /* ── Modal ── */
+    .overlay { position: fixed; inset: 0; background: rgba(10,18,14,0.78); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
     .overlay.open { opacity: 1; pointer-events: all; }
-
-    .modal {
-      background: var(--white);
-      width: min(560px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 2.75rem;
-      position: relative;
-      transform: translateY(18px);
-      transition: transform 0.3s;
-    }
+    .modal { background: var(--white); width: min(560px,100%); max-height: 90vh; overflow-y: auto; padding: 2.75rem; position: relative; transform: translateY(18px); transition: transform 0.3s; }
     .overlay.open .modal { transform: translateY(0); }
-
-    .modal-x {
-      position: absolute;
-      top: 1.1rem; right: 1.1rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.1rem;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1;
-      padding: 4px;
-      transition: color 0.2s;
-    }
+    .modal-x { position: absolute; top: 1.1rem; right: 1.1rem; background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--muted); font-weight: 300; line-height: 1; padding: 4px; transition: color 0.2s; }
     .modal-x:hover { color: var(--dark); }
-
-    .modal-title {
-      font-family: var(--display);
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--forest);
-      margin-bottom: 0.3rem;
-    }
-    .modal-sub {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
+    .modal-title { font-family: var(--display); font-size: 1.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.3rem; }
+    .modal-sub { font-size: 0.84rem; color: var(--muted); margin-bottom: 2rem; }
     .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .f-group { margin-bottom: 1.1rem; }
-    .f-group label {
-      display: block;
-      font-size: 0.66rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--forest);
-      margin-bottom: 0.4rem;
-    }
-    .f-group input,
-    .f-group select,
-    .f-group textarea {
-      width: 100%;
-      padding: 0.7rem 0.9rem;
-      border: 1px solid var(--border);
-      background: var(--white);
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .f-group input:focus,
-    .f-group select:focus,
-    .f-group textarea:focus { border-color: var(--forest); }
+    .f-group label { display: block; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.4rem; }
+    .f-group input, .f-group select, .f-group textarea { width: 100%; padding: 0.7rem 0.9rem; border: 1px solid var(--border); background: var(--white); font-family: var(--sans); font-size: 0.88rem; color: var(--text); outline: none; transition: border-color 0.2s; }
+    .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--forest); }
     .f-group textarea { resize: vertical; min-height: 72px; }
-
-    .f-submit {
-      width: 100%;
-      background: var(--forest);
-      color: var(--white);
-      padding: 0.95rem;
-      font-family: var(--display);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
+    .f-submit { width: 100%; background: var(--forest); color: var(--white); padding: 0.95rem; font-family: var(--display); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
     .f-submit:hover { background: var(--forest-mid); }
-
-    .f-note {
-      text-align: center;
-      font-size: 0.74rem;
-      color: var(--muted);
-      margin-top: 0.85rem;
-    }
+    .f-note { text-align: center; font-size: 0.74rem; color: var(--muted); margin-top: 0.85rem; }
     .f-note a { color: var(--rust); }
 
-    /* scroll bar */
-    .scroll-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      background: var(--sand);
-      z-index: 300;
-      pointer-events: none;
-    }
+    .scroll-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--sand); z-index: 300; pointer-events: none; }
   </style>
 </head>
 <body>
 
   <div class="scroll-bar" id="scrollBar"></div>
 
-  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <!-- NAV -->
   <nav id="nav">
     <div class="container nav-inner">
       <a href="#hero" class="nav-logo">
         <img src="images/logo-caleta.png" alt="Logo Caleta Azul" class="nav-logo-img" />
         <span class="nav-logo-text">
           Caleta Azul
-          <small>Hotel · Pacífico de Guatemala</small>
+          <small data-i18n="nav.tagline">Hotel · Pacífico de Guatemala</small>
         </span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#sobre">Nosotros</a></li>
-        <li><a href="#bungalows">Bungalows</a></li>
-        <li><a href="#actividades">Actividades</a></li>
-        <li><a href="#restaurante">Restaurante</a></li>
-        <li><a href="#como-llegar">Cómo Llegar</a></li>
-        <li><a href="#" class="nav-cta" onclick="openModal(event)">Reservar</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#sobre" data-i18n="nav.nosotros">Nosotros</a></li>
+          <li><a href="#bungalows">Bungalows</a></li>
+          <li><a href="#actividades" data-i18n="nav.actividades">Actividades</a></li>
+          <li><a href="#restaurante" data-i18n="nav.restaurante">Restaurante</a></li>
+          <li><a href="#como-llegar" data-i18n="nav.llegar">Cómo Llegar</a></li>
+          <li><a href="#" class="nav-cta" data-i18n="nav.reservar" onclick="openModal(event)">Reservar</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-slides" id="heroSlides">
       <div class="hero-slide active" style="background-image:url('images/portada2.jpg')"></div>
@@ -1320,24 +402,23 @@
       <div class="hero-slide" style="background-image:url('images/portada7.jpg')"></div>
     </div>
     <div class="hero-grad"></div>
-
     <div class="container">
       <div class="hero-content">
-        <span class="hero-label">Barra del Jiote, Las Lisas, Jutiapa</span>
+        <span class="hero-label">
+          <span class="hero-label-dot"></span>
+          <span data-i18n="hero.label">Barra del Jiote, Las Lisas, Santa Rosa</span>
+        </span>
         <h1 class="hero-title">
-          Manglar,
-          <span>mar y aventura</span>
+          <span data-i18n="hero.title1">Manglar,</span>
+          <span data-i18n="hero.title2">mar y aventura</span>
         </h1>
-        <p class="hero-sub">
-          Rodeados de selva de manglar y el Pacífico guatemalteco, en la Barra del Jiote te esperan bungalows tranquilos, mariscos frescos y experiencias que no encuentras en ninguna otra parte.
-        </p>
+        <p class="hero-sub" data-i18n="hero.sub">Rodeados de selva de manglar y el Pacífico guatemalteco, en la Barra del Jiote te esperan bungalows tranquilos, mariscos frescos y experiencias que no encuentras en ninguna otra parte.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn-rust" onclick="openModal(event)">Hacer una Reserva</a>
-          <a href="#actividades" class="btn-outline">Ver Actividades</a>
+          <a href="#" class="btn-rust" data-i18n="hero.cta1" onclick="openModal(event)">Hacer una Reserva</a>
+          <a href="#actividades" class="btn-outline" data-i18n="hero.cta2">Ver Actividades</a>
         </div>
       </div>
     </div>
-
     <div class="hero-dots" id="heroDots">
       <div class="hero-dot active" onclick="goToSlide(0)"></div>
       <div class="hero-dot" onclick="goToSlide(1)"></div>
@@ -1346,86 +427,50 @@
     </div>
   </section>
 
-  <!-- wave top -->
   <div class="wave-divider" style="background:var(--forest); margin-top:-1px;">
-    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="height:48px; fill:var(--cream);">
-      <path d="M0,48 C360,0 1080,0 1440,48 L1440,48 L0,48 Z"/>
-    </svg>
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="height:48px; fill:var(--cream);"><path d="M0,48 C360,0 1080,0 1440,48 L1440,48 L0,48 Z"/></svg>
   </div>
 
-  <!-- ── STRIP ─────────────────────────────────────────────── -->
+  <!-- STRIP -->
   <div class="strip">
     <div class="container">
       <div class="strip-inner">
-        <div class="reveal">
-          <span class="strip-num">2</span>
-          <span class="strip-label">Pecios para bucear</span>
-        </div>
-        <div class="reveal d1">
-          <span class="strip-num">6+</span>
-          <span class="strip-label">Actividades únicas</span>
-        </div>
-        <div class="reveal d2">
-          <span class="strip-num">Km 144</span>
-          <span class="strip-label">Ruta al Pacífico</span>
-        </div>
-        <div class="reveal d3">
-          <span class="strip-num">5 hrs</span>
-          <span class="strip-label">Temporada de buceo*</span>
-        </div>
+        <div class="reveal"><span class="strip-num">2</span><span class="strip-label" data-i18n="strip.1">Pecios para bucear</span></div>
+        <div class="reveal d1"><span class="strip-num">6+</span><span class="strip-label" data-i18n="strip.2">Actividades únicas</span></div>
+        <div class="reveal d2"><span class="strip-num">Km 144</span><span class="strip-label" data-i18n="strip.3">Ruta al Pacífico</span></div>
+        <div class="reveal d3"><span class="strip-num">5 meses</span><span class="strip-label" data-i18n="strip.4">Temporada de buceo</span></div>
       </div>
     </div>
   </div>
 
-  <!-- ── SOBRE ─────────────────────────────────────────────── -->
+  <!-- SOBRE -->
   <section id="sobre">
     <div class="container">
       <div class="about-grid">
         <div class="about-media reveal">
-          <div class="img-tall">
-            <img src="images/turistas.jpg" alt="Caleta Azul desde el agua" />
-          </div>
-          <div>
-            <img src="images/portada6.jpg" alt="Instalaciones del hotel" />
-          </div>
-          <div>
-            <img src="images/piscina.jpg" alt="Piscina Caleta Azul" />
-          </div>
+          <div class="img-tall"><img src="images/turistas.jpg" alt="Caleta Azul" /></div>
+          <div><img src="images/portada6.jpg" alt="Hotel Caleta Azul" /></div>
+          <div><img src="images/piscina.jpg" alt="Piscina" /></div>
         </div>
-
         <div>
-          <div class="pill reveal">Hotel de familia · Desde los 90s</div>
-          <span class="section-eyebrow reveal d1">Nuestra historia</span>
-          <h2 class="section-title reveal d2">Donde el manglar<br/><em>abraza el Pacífico</em></h2>
+          <div class="pill reveal" data-i18n="about.pill">Hotel de familia · Desde los 90s</div>
+          <span class="section-eyebrow reveal d1" data-i18n="about.eyebrow">Nuestra historia</span>
+          <h2 class="section-title reveal d2" data-i18n-html="about.title">Donde el manglar<br/><em>abraza el Pacífico</em></h2>
           <div class="rule reveal d3"></div>
-          <p class="section-body reveal d3">
-            Caleta Azul nació del descubrimiento de un rincón especial en la Barra del Jiote, sobre la costa del Pacífico guatemalteco. Un lugar rodeado de selva de manglar y mar abierto, lejos del ruido y cerca de lo que importa.
-          </p>
-          <p class="section-body reveal d4" style="margin-top:1rem;">
-            Es un hotel de familia, gestionado con atención personal y genuina. Aquí los pescadores son los vecinos, la chef conoce a quienes le traen los camarones, y el manglar que rodea el lugar es el jardín natural que nadie plantó.
-          </p>
-
+          <p class="section-body reveal d3" data-i18n="about.p1">Caleta Azul nació del descubrimiento de un rincón especial en la Barra del Jiote, sobre la costa del Pacífico guatemalteco. Un lugar rodeado de selva de manglar y mar abierto, lejos del ruido y cerca de lo que importa.</p>
+          <p class="section-body reveal d4" style="margin-top:1rem;" data-i18n="about.p2">Es un hotel de familia, gestionado con atención personal y genuina. Aquí los pescadores son los vecinos, la chef conoce a quienes le traen los camarones, y el manglar que rodea el lugar es el jardín natural que nadie plantó.</p>
           <div class="feature-list">
             <div class="feature-item reveal d3">
               <div class="feature-line"></div>
-              <div>
-                <strong>Rodeado de manglar y mar</strong>
-                <span>La Barra del Jiote, entre la selva y el Pacífico abierto</span>
-              </div>
+              <div><strong data-i18n="about.f1t">Rodeado de manglar y mar</strong><span data-i18n="about.f1d">La Barra del Jiote, entre la selva y el Pacífico abierto</span></div>
             </div>
             <div class="feature-item reveal d4">
               <div class="feature-line"></div>
-              <div>
-                <strong>Hotel de familia</strong>
-                <span>Servicio personal y atención directa desde el primer día</span>
-              </div>
+              <div><strong data-i18n="about.f2t">Hotel de familia</strong><span data-i18n="about.f2d">Servicio personal y atención directa desde el primer día</span></div>
             </div>
             <div class="feature-item reveal d5">
               <div class="feature-line"></div>
-              <div>
-                <strong>Conservacion activa</strong>
-                <span>Programa de liberación de tortugas marinas en peligro de extinción</span>
-              </div>
+              <div><strong data-i18n="about.f3t">Conservación activa</strong><span data-i18n="about.f3d">Programa de liberación de tortugas marinas en peligro de extinción</span></div>
             </div>
           </div>
         </div>
@@ -1433,96 +478,70 @@
     </div>
   </section>
 
-  <!-- ── BUNGALOWS ─────────────────────────────────────────── -->
+  <!-- BUNGALOWS -->
   <section id="bungalows">
     <div class="container">
       <div class="bungalows-header">
         <div>
-          <span class="section-eyebrow reveal">Alojamiento</span>
-          <h2 class="section-title reveal d1">Nuestros<br/><em>Bungalows</em></h2>
+          <span class="section-eyebrow reveal" data-i18n="rooms.eyebrow">Alojamiento</span>
+          <h2 class="section-title reveal d1" data-i18n-html="rooms.title">Nuestros<br/><em>Bungalows</em></h2>
           <div class="rule reveal d2"></div>
         </div>
-        <p class="section-body reveal d1" style="max-width:340px;">
-          Cada bungalow tiene terraza privada con hamaca, ventilación natural y acceso directo al ambiente del litoral.
-        </p>
+        <p class="section-body reveal d1" style="max-width:340px;" data-i18n="rooms.sub">Cada bungalow tiene terraza privada con hamaca, ventilación natural y acceso directo al ambiente del litoral.</p>
       </div>
-
       <div class="rooms-grid">
         <div class="room-card reveal">
-          <div class="room-img">
-            <img src="images/bungalows.jpg" alt="Bungalow Doble Caleta Azul" />
-          </div>
+          <div class="room-img"><img src="images/bungalows.jpg" alt="Bungalow Doble" /></div>
           <div class="room-body">
-            <p class="room-eyebrow">Para 2 personas</p>
-            <h3 class="room-name">Bungalow Doble</h3>
-            <p class="room-desc">
-              Cama matrimonial o imperial, baño privado con bañera, aire acondicionado y terraza con hamaca. Sencillo, cómodo y justo lo que se necesita después de un día en el agua.
-            </p>
+            <p class="room-eyebrow" data-i18n="r1.eye">Para 2 personas</p>
+            <h3 class="room-name" data-i18n="r1.name">Bungalow Doble</h3>
+            <p class="room-desc" data-i18n="r1.desc">Cama matrimonial o imperial, baño privado con bañera, aire acondicionado y terraza con hamaca. Sencillo, cómodo y justo lo que se necesita después de un día en el agua.</p>
             <div class="room-tags">
-              <span class="room-tag">Aire acondicionado</span>
-              <span class="room-tag">Terraza</span>
-              <span class="room-tag">Hamaca</span>
+              <span class="room-tag" data-i18n="tag.ac">Aire acondicionado</span>
+              <span class="room-tag" data-i18n="tag.terrace">Terraza</span>
+              <span class="room-tag" data-i18n="tag.hammock">Hamaca</span>
               <span class="room-tag">TV cable</span>
-              <span class="room-tag">Bañera</span>
+              <span class="room-tag" data-i18n="tag.tub">Bañera</span>
             </div>
             <div class="room-foot">
-              <div class="room-price">
-                Desde $98
-                <small>por noche</small>
-              </div>
-              <a href="#" class="room-cta" onclick="openModal(event)">Reservar &rarr;</a>
+              <div class="room-price">Desde $98<small data-i18n="r1.price">por noche</small></div>
+              <a href="#" class="room-cta" data-i18n="cta.book" onclick="openModal(event)">Reservar &rarr;</a>
             </div>
           </div>
         </div>
-
         <div class="room-card reveal d1">
-          <div class="room-img">
-            <img src="images/portada9.jpg" alt="Bungalow Familiar" style="object-position:center;" />
-          </div>
+          <div class="room-img"><img src="images/portada9.jpg" alt="Bungalow Familiar" /></div>
           <div class="room-body">
-            <p class="room-eyebrow">Para 4 personas</p>
-            <h3 class="room-name">Bungalow Familiar</h3>
-            <p class="room-desc">
-              Dos habitaciones para familias o grupos de amigos. Camas matrimoniales e individuales, terrazas compartidas y espacio para descansar entre una aventura y la siguiente.
-            </p>
+            <p class="room-eyebrow" data-i18n="r2.eye">Para 4 personas</p>
+            <h3 class="room-name" data-i18n="r2.name">Bungalow Familiar</h3>
+            <p class="room-desc" data-i18n="r2.desc">Dos habitaciones para familias o grupos de amigos. Camas matrimoniales e individuales, terrazas compartidas y espacio para descansar entre una aventura y la siguiente.</p>
             <div class="room-tags">
-              <span class="room-tag">2 habitaciones</span>
-              <span class="room-tag">Aire acondicionado</span>
-              <span class="room-tag">Terrazas</span>
-              <span class="room-tag">Hamacas</span>
+              <span class="room-tag" data-i18n="tag.2rooms">2 habitaciones</span>
+              <span class="room-tag" data-i18n="tag.ac">Aire acondicionado</span>
+              <span class="room-tag" data-i18n="tag.terraces">Terrazas</span>
+              <span class="room-tag" data-i18n="tag.hammocks">Hamacas</span>
             </div>
             <div class="room-foot">
-              <div class="room-price">
-                Consultar
-                <small>precio por temporada</small>
-              </div>
-              <a href="#" class="room-cta" onclick="openModal(event)">Consultar &rarr;</a>
+              <div class="room-price" data-i18n-html="r2.price">Consultar<small>precio por temporada</small></div>
+              <a href="#" class="room-cta" data-i18n="cta.ask" onclick="openModal(event)">Consultar &rarr;</a>
             </div>
           </div>
         </div>
-
         <div class="room-card reveal d2">
-          <div class="room-img">
-            <img src="images/portada5.jpg" alt="Eventos y celebraciones" style="object-position:center;" />
-          </div>
+          <div class="room-img"><img src="images/portada5.jpg" alt="Alquiler Completo" /></div>
           <div class="room-body">
-            <p class="room-eyebrow">Bodas y eventos</p>
-            <h3 class="room-name">Alquiler Completo</h3>
-            <p class="room-desc">
-              El hotel completo para bodas, aniversarios o retiros. Cocina exclusiva, decoración, actividades coordinadas y la puesta de sol del Pacífico de fondo.
-            </p>
+            <p class="room-eyebrow" data-i18n="r3.eye">Bodas y eventos</p>
+            <h3 class="room-name" data-i18n="r3.name">Alquiler Completo</h3>
+            <p class="room-desc" data-i18n="r3.desc">El hotel completo para bodas, aniversarios o retiros. Cocina exclusiva, decoración, actividades coordinadas y la puesta de sol del Pacífico de fondo.</p>
             <div class="room-tags">
-              <span class="room-tag">Todo el hotel</span>
-              <span class="room-tag">Chef exclusivo</span>
-              <span class="room-tag">Actividades</span>
-              <span class="room-tag">Transporte</span>
+              <span class="room-tag" data-i18n="tag.fullhotel">Todo el hotel</span>
+              <span class="room-tag" data-i18n="tag.chef">Chef exclusivo</span>
+              <span class="room-tag" data-i18n="tag.activities">Actividades</span>
+              <span class="room-tag" data-i18n="tag.transport">Transporte</span>
             </div>
             <div class="room-foot">
-              <div class="room-price">
-                A cotizar
-                <small>grupos y eventos</small>
-              </div>
-              <a href="#" class="room-cta" onclick="openModal(event)">Cotizar &rarr;</a>
+              <div class="room-price">A cotizar<small data-i18n="r3.price">grupos y eventos</small></div>
+              <a href="#" class="room-cta" data-i18n="cta.quote" onclick="openModal(event)">Cotizar &rarr;</a>
             </div>
           </div>
         </div>
@@ -1530,602 +549,578 @@
     </div>
   </section>
 
-  <!-- ── ACTIVIDADES ───────────────────────────────────────── -->
+  <!-- ACTIVIDADES -->
   <section id="actividades">
     <div class="container">
       <div class="act-header">
         <div>
-          <span class="section-eyebrow light reveal">Aventura</span>
-          <h2 class="section-title light reveal d1">Lo que te espera<br/><em>afuera</em></h2>
+          <span class="section-eyebrow light reveal" data-i18n="act.eyebrow">Aventura</span>
+          <h2 class="section-title light reveal d1" data-i18n-html="act.title">Lo que te espera<br/><em>afuera</em></h2>
           <div class="rule sand reveal d2"></div>
         </div>
-        <p class="section-body light reveal d2" style="max-width:360px; text-align:right;">
-          El Pacífico guatemalteco tiene mucho mas que playa. Nuestros guias y capitanes te llevan a descubrirlo.
-        </p>
+        <p class="section-body light reveal d2" style="max-width:360px; text-align:right;" data-i18n="act.sub">El Pacífico guatemalteco tiene mucho más que playa. Nuestros guías y capitanes te llevan a descubrirlo.</p>
       </div>
-
       <div class="act-grid">
         <div class="act-card reveal">
           <img src="images/tour-manglar.jpg" alt="Tour de manglar" />
           <div class="act-overlay">
-            <span class="act-tag">Ecoturismo</span>
-            <h3 class="act-name">Tour de Manglar</h3>
-            <p class="act-desc">Expediciones de dia y noche por la selva de manglar virgen. Flora y fauna en su habitat natural, canales que nadie mas conoce.</p>
+            <span class="act-tag" data-i18n="act1.tag">Ecoturismo</span>
+            <h3 class="act-name" data-i18n="act1.name">Tour de Manglar</h3>
+            <p class="act-desc" data-i18n="act1.desc">Expediciones de día y noche por la selva de manglar virgen. Flora y fauna en su hábitat natural, canales que nadie más conoce.</p>
           </div>
         </div>
-
         <div class="act-card reveal d1">
           <img src="images/pesca-home.jpg" alt="Pesca deportiva" />
           <div class="act-overlay">
-            <span class="act-tag">Pesca deportiva</span>
-            <h3 class="act-name">Pesca en Alta Mar</h3>
-            <p class="act-desc">Marlin, dorado y pez vela abundan en estas aguas. Capitanes con anos de experiencia, equipo profesional y cebo vivo incluido.</p>
+            <span class="act-tag" data-i18n="act2.tag">Pesca deportiva</span>
+            <h3 class="act-name" data-i18n="act2.name">Pesca en Alta Mar</h3>
+            <p class="act-desc" data-i18n="act2.desc">Marlin, dorado y pez vela abundan en estas aguas. Capitanes con años de experiencia, equipo profesional y cebo vivo incluido.</p>
           </div>
         </div>
-
         <div class="act-card reveal d2">
           <img src="images/tortugas.jpg" alt="Liberacion de tortugas" />
           <div class="act-overlay">
-            <span class="act-tag">Conservacion</span>
-            <h3 class="act-name">Liberacion de Tortugas</h3>
-            <p class="act-desc">Participa en la liberacion de crias de tortuga marina. Una experiencia que cambia la perspectiva.</p>
+            <span class="act-tag" data-i18n="act3.tag">Conservación</span>
+            <h3 class="act-name" data-i18n="act3.name">Liberación de Tortugas</h3>
+            <p class="act-desc" data-i18n="act3.desc">Participa en la liberación de crías de tortuga marina. Una experiencia que cambia la perspectiva.</p>
           </div>
         </div>
       </div>
-
       <div class="act-feature-row">
         <div class="act-card act-card-wide reveal">
-          <img src="images/kayak.jpg" alt="Kayak en manglar" />
+          <img src="images/kayak.jpg" alt="Kayak" />
           <div class="act-overlay">
             <span class="act-tag">Kayak</span>
-            <h3 class="act-name">Kayak por los Canales</h3>
-            <p class="act-desc">Navega a tu ritmo los canales del manglar. Silencio, naturaleza y avistamiento de aves en estado puro.</p>
+            <h3 class="act-name" data-i18n="act4.name">Kayak por los Canales</h3>
+            <p class="act-desc" data-i18n="act4.desc">Navega a tu ritmo los canales del manglar. Silencio, naturaleza y avistamiento de aves en estado puro.</p>
           </div>
         </div>
-
         <div class="act-card act-card-wide reveal d1">
           <img src="images/aves.jpg" alt="Avistamiento de aves" />
           <div class="act-overlay">
-            <span class="act-tag">Naturaleza</span>
-            <h3 class="act-name">Avistamiento de Aves</h3>
-            <p class="act-desc">Las playas y canales de la costa albergan decenas de especies de aves marinas y canoras. Salidas con binoculares al amanecer.</p>
+            <span class="act-tag" data-i18n="act5.tag">Naturaleza</span>
+            <h3 class="act-name" data-i18n="act5.name">Avistamiento de Aves</h3>
+            <p class="act-desc" data-i18n="act5.desc">Las playas y canales de la costa albergan decenas de especies de aves marinas y canoras. Salidas con binoculares al amanecer.</p>
           </div>
         </div>
       </div>
-
-      <!-- Diving highlight -->
       <div style="position:relative; z-index:2; margin-top:3px;">
         <div class="act-card" style="height:320px;">
-          <img src="images/cora.jpg" alt="Buceo en pecios" style="object-position:center 60%;" />
+          <img src="images/cora.jpg" alt="Buceo" style="object-position:center 60%;" />
           <div class="act-overlay">
-            <span class="act-tag">Buceo · Dic - May</span>
-            <h3 class="act-name" style="font-size:1.6rem;">Buceo en Pecios del Pacifico</h3>
-            <p class="act-desc" style="max-height:none; font-size:0.88rem; max-width:600px;">
-              Dos barcos hundidos yacen en el fondo del Pacifico cerca de la costa. Corales, cardumenes y la historia de naufragios reales. Personal certificado, equipo incluido. Temporada: diciembre a mayo.
-            </p>
+            <span class="act-tag" data-i18n="act6.tag">Buceo · Dic - May</span>
+            <h3 class="act-name" data-i18n="act6.name" style="font-size:1.6rem;">Buceo en Pecios del Pacífico</h3>
+            <p class="act-desc" data-i18n="act6.desc" style="max-height:none; font-size:0.88rem; max-width:600px;">Dos barcos hundidos yacen en el fondo del Pacífico cerca de la costa. Corales, cardúmenes y la historia de naufragios reales. Personal certificado, equipo incluido. Temporada: diciembre a mayo.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── RESTAURANTE ───────────────────────────────────────── -->
+  <!-- RESTAURANTE -->
   <section id="restaurante">
     <div class="container">
       <div class="rest-layout">
         <div class="rest-imgs reveal">
-          <div class="rest-img wide">
-            <img src="images/restaurante.jpg" alt="Restaurante Caleta Azul" />
-          </div>
-          <div class="rest-img">
-            <img src="images/camarones.jpg" alt="Camarones frescos" />
-          </div>
-          <div class="rest-img">
-            <img src="images/portada8.jpg" alt="Comida del hotel" />
-          </div>
+          <div class="rest-img wide"><img src="images/restaurante.jpg" alt="Restaurante" /></div>
+          <div class="rest-img"><img src="images/camarones.jpg" alt="Camarones" /></div>
+          <div class="rest-img"><img src="images/portada8.jpg" alt="Comida" /></div>
         </div>
-
         <div>
-          <span class="section-eyebrow reveal">Gastronomia</span>
-          <h2 class="section-title reveal d1">Del mar<br/><em>a la mesa</em></h2>
+          <span class="section-eyebrow reveal" data-i18n="rest.eyebrow">Gastronomía</span>
+          <h2 class="section-title reveal d1" data-i18n-html="rest.title">Del mar<br/><em>a la mesa</em></h2>
           <div class="rule reveal d2"></div>
-          <p class="section-body reveal d2">
-            La cocina de Caleta Azul es uno de los secretos mejor guardados de la costa. Los pescadores de la Barra traen el marisco cada manana, y la chef de la familia lo convierte en platillos que los huespedes no olvidan.
-          </p>
-          <p class="section-body reveal d3" style="margin-top:0.85rem;">
-            Cocina caribena de mar con ingredientes del Pacifico guatemalteco. Sin intermediarios, sin congelados.
-          </p>
-
+          <p class="section-body reveal d2" data-i18n="rest.p1">La cocina de Caleta Azul es uno de los secretos mejor guardados de la costa. Los pescadores de la Barra traen el marisco cada mañana, y la chef de la familia lo convierte en platillos que los huéspedes no olvidan.</p>
+          <p class="section-body reveal d3" style="margin-top:0.85rem;" data-i18n="rest.p2">Cocina caribeña de mar con ingredientes del Pacífico guatemalteco. Sin intermediarios, sin congelados.</p>
           <div class="menu-rows reveal d3">
-            <div class="menu-row">Ceviche de camaron y pescado fresco</div>
-            <div class="menu-row">Mariscos a la plancha con hierbas del litoral</div>
-            <div class="menu-row">Tapado caribeno de mariscos</div>
-            <div class="menu-row">Coctel de mariscos estilo Pacifico</div>
-            <div class="menu-row">Desayunos tipicos guatemaltecos</div>
-            <div class="menu-row">Bar con cocteles y refrescos naturales</div>
+            <div class="menu-row" data-i18n="menu.1">Ceviche de camarón y pescado fresco</div>
+            <div class="menu-row" data-i18n="menu.2">Mariscos a la plancha con hierbas del litoral</div>
+            <div class="menu-row" data-i18n="menu.3">Tapado caribeño de mariscos</div>
+            <div class="menu-row" data-i18n="menu.4">Cóctel de mariscos estilo Pacífico</div>
+            <div class="menu-row" data-i18n="menu.5">Desayunos típicos guatemaltecos</div>
+            <div class="menu-row" data-i18n="menu.6">Bar con cócteles y refrescos naturales</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICIOS ─────────────────────────────────────────── -->
+  <!-- SERVICIOS -->
   <section id="servicios">
     <div class="container">
       <div class="svc-header">
-        <span class="section-eyebrow light reveal">Instalaciones</span>
-        <h2 class="section-title light reveal d1">Todo lo que necesitas</h2>
+        <span class="section-eyebrow light reveal" data-i18n="svc.eyebrow">Instalaciones</span>
+        <h2 class="section-title light reveal d1" data-i18n="svc.title">Todo lo que necesitas</h2>
         <div class="rule sand reveal d2" style="margin:1rem auto 0;"></div>
       </div>
-
       <div class="svc-grid">
-        <div class="svc-card reveal">
-          <div class="svc-icon">PISCINA</div>
-          <h4 class="svc-name">Piscina</h4>
-          <p class="svc-desc">Piscina principal y piscina para ninos, con vista al Pacifico</p>
-        </div>
-        <div class="svc-card reveal d1">
-          <div class="svc-icon">REST</div>
-          <h4 class="svc-name">Restaurante y Bar</h4>
-          <p class="svc-desc">Cocina de mariscos frescos diarios, servicio a la habitacion disponible</p>
-        </div>
-        <div class="svc-card reveal d2">
-          <div class="svc-icon">LANCHA</div>
-          <h4 class="svc-name">Transporte en Lancha</h4>
-          <p class="svc-desc">Traslados privados incluidos y transporte a Antigua o Panajachel</p>
-        </div>
-        <div class="svc-card reveal d3">
-          <div class="svc-icon">WIFI</div>
-          <h4 class="svc-name">WiFi y Telefono</h4>
-          <p class="svc-desc">Conexion a internet y servicio telefonico en todas las areas</p>
-        </div>
-        <div class="svc-card reveal">
-          <div class="svc-icon">SEG</div>
-          <h4 class="svc-name">Seguridad 24h</h4>
-          <p class="svc-desc">Vigilancia continua y caja de seguridad en cada bungalow</p>
-        </div>
-        <div class="svc-card reveal d1">
-          <div class="svc-icon">LAV</div>
-          <h4 class="svc-name">Lavanderia</h4>
-          <p class="svc-desc">Servicio disponible a solicitud durante toda la estadia</p>
-        </div>
-        <div class="svc-card reveal d2">
-          <div class="svc-icon">PARK</div>
-          <h4 class="svc-name">Parqueo Vigilado</h4>
-          <p class="svc-desc">Parqueo seguro y economico en el embarcadero de Sarampana</p>
-        </div>
-        <div class="svc-card reveal d3">
-          <div class="svc-icon">EVT</div>
-          <h4 class="svc-name">Eventos Especiales</h4>
-          <p class="svc-desc">Bodas y retiros con ambientacion personalizada al atardecer del Pacifico</p>
-        </div>
+        <div class="svc-card reveal"><div class="svc-icon">POOL</div><h4 class="svc-name" data-i18n="svc1.name">Piscina</h4><p class="svc-desc" data-i18n="svc1.desc">Piscina principal y para niños, con vista al Pacífico</p></div>
+        <div class="svc-card reveal d1"><div class="svc-icon">REST</div><h4 class="svc-name" data-i18n="svc2.name">Restaurante y Bar</h4><p class="svc-desc" data-i18n="svc2.desc">Cocina de mariscos frescos diarios, servicio a la habitación disponible</p></div>
+        <div class="svc-card reveal d2"><div class="svc-icon">BOAT</div><h4 class="svc-name" data-i18n="svc3.name">Transporte en Lancha</h4><p class="svc-desc" data-i18n="svc3.desc">Traslados incluidos y transporte a Antigua o Panajachel</p></div>
+        <div class="svc-card reveal d3"><div class="svc-icon">WIFI</div><h4 class="svc-name">WiFi</h4><p class="svc-desc" data-i18n="svc4.desc">Conexión a internet y servicio telefónico en todas las áreas</p></div>
+        <div class="svc-card reveal"><div class="svc-icon">SEC</div><h4 class="svc-name" data-i18n="svc5.name">Seguridad 24h</h4><p class="svc-desc" data-i18n="svc5.desc">Vigilancia continua y caja de seguridad en cada bungalow</p></div>
+        <div class="svc-card reveal d1"><div class="svc-icon">LAUN</div><h4 class="svc-name" data-i18n="svc6.name">Lavandería</h4><p class="svc-desc" data-i18n="svc6.desc">Servicio disponible a solicitud durante toda la estadía</p></div>
+        <div class="svc-card reveal d2"><div class="svc-icon">PARK</div><h4 class="svc-name" data-i18n="svc7.name">Parqueo Vigilado</h4><p class="svc-desc" data-i18n="svc7.desc">Parqueo seguro en el embarcadero de Sarampana</p></div>
+        <div class="svc-card reveal d3"><div class="svc-icon">EVT</div><h4 class="svc-name" data-i18n="svc8.name">Eventos Especiales</h4><p class="svc-desc" data-i18n="svc8.desc">Bodas y retiros con ambientación personalizada al atardecer</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ── TESTIMONIOS ───────────────────────────────────────── -->
+  <!-- TESTIMONIOS -->
   <section id="testimonios">
     <div class="container test-inner">
       <div class="test-header">
-        <span class="section-eyebrow light reveal">Huespedes</span>
-        <h2 class="section-title light reveal d1">Lo que dicen<br/><em>quienes ya estuvieron</em></h2>
+        <span class="section-eyebrow light reveal" data-i18n="test.eyebrow">Huéspedes</span>
+        <h2 class="section-title light reveal d1" data-i18n-html="test.title">Lo que dicen<br/><em>quienes ya estuvieron</em></h2>
         <div class="rule sand reveal d2" style="margin:1rem auto 0;"></div>
       </div>
-
       <div class="test-grid">
         <div class="test-card reveal">
           <div class="test-stars">* * * * *</div>
-          <p class="test-quote">"La comida fue absolutamente memorable. Mariscos frescos que los propios pescadores traen cada manana, preparados con una calidez que no encuentras en ningun hotel de cadena."</p>
-          <div class="test-author">Maria J.</div>
-          <div class="test-origin">Ciudad de Guatemala</div>
+          <p class="test-quote" data-i18n="test1.quote">"La comida fue absolutamente memorable. Mariscos frescos que los propios pescadores traen cada mañana, preparados con una calidez que no encuentras en ningún hotel de cadena."</p>
+          <div class="test-author">María J.</div><div class="test-origin" data-i18n="test1.origin">Ciudad de Guatemala</div>
         </div>
         <div class="test-card reveal d1">
           <div class="test-stars">* * * * *</div>
-          <p class="test-quote">"El hotel parece un paraiso sacado de una pelicula. Verde exuberante, el azul del mar, y una paz absoluta que el estres de la ciudad te hace olvidar que existe."</p>
-          <div class="test-author">Carlos R.</div>
-          <div class="test-origin">TripAdvisor · Resena verificada</div>
+          <p class="test-quote" data-i18n="test2.quote">"El hotel parece un paraíso sacado de una película. Verde exuberante, el azul del mar, y una paz absoluta que el estrés de la ciudad te hace olvidar que existe."</p>
+          <div class="test-author">Carlos R.</div><div class="test-origin" data-i18n="test2.origin">TripAdvisor · Reseña verificada</div>
         </div>
         <div class="test-card reveal d2">
           <div class="test-stars">* * * * *</div>
-          <p class="test-quote">"La liberacion de tortugas fue una de las experiencias mas emocionantes de nuestra vida. El equipo es extraordinario. Volveremos cada ano."</p>
-          <div class="test-author">Ana y Pedro M.</div>
-          <div class="test-origin">Guatemala · Familia</div>
+          <p class="test-quote" data-i18n="test3.quote">"La liberación de tortugas fue una de las experiencias más emocionantes de nuestra vida. El equipo es extraordinario. Volveremos cada año."</p>
+          <div class="test-author">Ana y Pedro M.</div><div class="test-origin" data-i18n="test3.origin">Guatemala · Familia</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── COMO LLEGAR ───────────────────────────────────────── -->
+  <!-- COMO LLEGAR -->
   <section id="como-llegar">
     <div class="container">
       <div class="llegar-layout">
         <div>
-          <span class="section-eyebrow reveal">Ubicacion</span>
-          <h2 class="section-title reveal d1">Llegar es<br/><em>parte del viaje</em></h2>
+          <span class="section-eyebrow reveal" data-i18n="llegar.eyebrow">Ubicación</span>
+          <h2 class="section-title reveal d1" data-i18n-html="llegar.title">Llegar es<br/><em>parte del viaje</em></h2>
           <div class="rule reveal d2"></div>
-          <p class="section-body reveal d2">
-            A 2.5 horas de la Ciudad de Guatemala. La travesia final en lancha por los canales del manglar ya es una experiencia en si misma.
-          </p>
-
+          <p class="section-body reveal d2" data-i18n="llegar.sub">A 2.5 horas de la Ciudad de Guatemala. La travesía final en lancha por los canales del manglar ya es una experiencia en sí misma.</p>
           <div class="steps reveal d3">
             <div class="step">
               <div class="step-n">1</div>
-              <div>
-                <h4 class="step-head">Ciudad de Guatemala</h4>
-                <p class="step-body">Toma la carretera al Pacifico hacia Chiquimulilla. Aproximadamente 2.5 horas en condiciones normales.</p>
-              </div>
+              <div><h4 class="step-head" data-i18n="step1.title">Ciudad de Guatemala</h4><p class="step-body" data-i18n="step1.body">Toma la carretera al Pacífico hacia Chiquimulilla. Aproximadamente 2.5 horas en condiciones normales.</p></div>
             </div>
             <div class="step">
               <div class="step-n">2</div>
-              <div>
-                <h4 class="step-head">Embarcadero de Sarampana</h4>
-                <p class="step-body">Llega al Km. 144 de la Ruta al Pacifico. Deja tu vehiculo en el embarcadero de Sarampana.</p>
-                <span class="step-note">Parqueo vigilado aprox. Q30 / dia</span>
-              </div>
+              <div><h4 class="step-head" data-i18n="step2.title">Embarcadero de Sarampana</h4><p class="step-body" data-i18n="step2.body">Llega al Km. 144 de la Ruta al Pacífico. Deja tu vehículo en el embarcadero de Sarampana.</p><span class="step-note" data-i18n="step2.note">Parqueo vigilado aprox. Q30 / día</span></div>
             </div>
             <div class="step">
               <div class="step-n">3</div>
-              <div>
-                <h4 class="step-head">Travesia en Lancha</h4>
-                <p class="step-body">Aborda la lancha hacia la Barra del Jiote. El recorrido toma unos 30 minutos por canales de manglar.</p>
-                <span class="step-note">Lancha aprox. Q75 – Q150 por viaje</span>
-              </div>
+              <div><h4 class="step-head" data-i18n="step3.title">Travesía en Lancha</h4><p class="step-body" data-i18n="step3.body">Aborda la lancha hacia la Barra del Jiote. El recorrido toma unos 30 minutos por canales de manglar.</p><span class="step-note" data-i18n="step3.note">Lancha aprox. Q75 – Q150 por viaje</span></div>
             </div>
             <div class="step">
               <div class="step-n">4</div>
-              <div>
-                <h4 class="step-head">Bienvenido a Caleta Azul</h4>
-                <p class="step-body">Llegas directo al muelle del hotel. El equipo te estara esperando.</p>
-              </div>
+              <div><h4 class="step-head" data-i18n="step4.title">Bienvenido a Caleta Azul</h4><p class="step-body" data-i18n="step4.body">Llegas directo al muelle del hotel. El equipo te estará esperando.</p></div>
             </div>
           </div>
         </div>
-
         <div class="contact-box reveal d2">
-          <h3 class="contact-box-title">Contacto</h3>
-          <div class="cbox-row">
-            <span class="cbox-label">Tel.</span>
-            <div>
-              <div><a href="tel:+50258131737">+502 5813-1737</a></div>
-              <div><a href="tel:+50241347273">+502 4134-7273</a></div>
-            </div>
-          </div>
-          <div class="cbox-row">
-            <span class="cbox-label">Correo</span>
-            <a href="mailto:info@caletaazul.com">info@caletaazul.com</a>
-          </div>
-          <div class="cbox-row">
-            <span class="cbox-label">Web</span>
-            <a href="https://www.caletaazul.com" target="_blank">www.caletaazul.com</a>
-          </div>
-          <div class="cbox-row">
-            <span class="cbox-label">Lugar</span>
-            <span>Km. 144, Barra del Jiote, Las Lisas, Jutiapa, Guatemala</span>
-          </div>
-
-          <a href="https://wa.me/50258131737" target="_blank" class="wa-btn">
-            Escribir por WhatsApp
-          </a>
-
-          <div style="margin-top:2rem; overflow:hidden;">
-            <img
-              src="images/playa.jpg"
-              alt="Playa Caleta Azul"
-              style="width:100%; height:180px; object-fit:cover; display:block;"
-            />
+          <h3 class="contact-box-title" data-i18n="contact.title">Contacto</h3>
+          <div class="cbox-row"><span class="cbox-label" data-i18n="contact.tel">Tel.</span><div><div><a href="tel:+50258131737">+502 5813-1737</a></div><div><a href="tel:+50241347273">+502 4134-7273</a></div></div></div>
+          <div class="cbox-row"><span class="cbox-label" data-i18n="contact.email">Correo</span><a href="mailto:info@caletaazul.com">info@caletaazul.com</a></div>
+          <div class="cbox-row"><span class="cbox-label" data-i18n="contact.web">Web</span><a href="https://www.caletaazul.com" target="_blank">www.caletaazul.com</a></div>
+          <div class="cbox-row"><span class="cbox-label" data-i18n="contact.place">Lugar</span><span data-i18n="contact.address">Km. 144, Barra del Jiote, Las Lisas, Santa Rosa, Guatemala</span></div>
+          <a href="https://wa.me/50258131737" target="_blank" class="wa-btn" data-i18n="contact.wa">Escribir por WhatsApp</a>
+          <div style="margin-top:2rem; overflow:hidden; border-radius:8px;">
+            <img src="images/playa.jpg" alt="Playa Caleta Azul" style="width:100%; height:180px; object-fit:cover; display:block;" />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── GALERIA ────────────────────────────────────────────── -->
+  <!-- GALERIA -->
   <section id="galeria">
     <div class="container">
       <div class="gallery-header">
         <div>
-          <span class="section-eyebrow reveal">Galeria</span>
-          <h2 class="section-title reveal d1">El lugar<br/><em>en imagenes</em></h2>
+          <span class="section-eyebrow reveal" data-i18n="gallery.eyebrow">Galería</span>
+          <h2 class="section-title reveal d1" data-i18n-html="gallery.title">El lugar<br/><em>en imágenes</em></h2>
           <div class="rule reveal d2"></div>
         </div>
-        <a href="https://www.facebook.com/profile.php?id=100065647383071" target="_blank" class="btn-rust reveal" style="align-self:flex-end; margin-bottom:0.5rem;">Ver en Facebook</a>
+        <a href="https://www.facebook.com/profile.php?id=100065647383071" target="_blank" class="btn-rust reveal" style="align-self:flex-end; margin-bottom:0.5rem;" data-i18n="gallery.fb">Ver en Facebook</a>
       </div>
-
       <div class="gallery-grid reveal">
-        <div class="g-item">
-          <img src="images/portada2.jpg" alt="Caleta Azul" />
-        </div>
-        <div class="g-item">
-          <img src="images/kayak.jpg" alt="Kayak" />
-        </div>
-        <div class="g-item">
-          <img src="images/aves.jpg" alt="Aves" />
-        </div>
-        <div class="g-item">
-          <img src="images/tortugas.jpg" alt="Tortugas" />
-        </div>
-        <div class="g-item">
-          <img src="images/tour-manglar.jpg" alt="Manglar" />
-        </div>
-        <div class="g-item">
-          <img src="images/camarones.jpg" alt="Mariscos" />
-        </div>
+        <div class="g-item"><img src="images/portada2.jpg" alt="Caleta Azul" /></div>
+        <div class="g-item"><img src="images/kayak.jpg" alt="Kayak" /></div>
+        <div class="g-item"><img src="images/aves.jpg" alt="Aves" /></div>
+        <div class="g-item"><img src="images/tortugas.jpg" alt="Tortugas" /></div>
+        <div class="g-item"><img src="images/tour-manglar.jpg" alt="Manglar" /></div>
+        <div class="g-item"><img src="images/camarones.jpg" alt="Mariscos" /></div>
       </div>
     </div>
   </section>
 
-  <!-- ── CTA BAND ───────────────────────────────────────────── -->
+  <!-- CTA -->
   <section id="cta-band">
-    <div class="bg"></div>
-    <div class="bg-overlay"></div>
+    <div class="bg"></div><div class="bg-overlay"></div>
     <div class="container cta-inner">
-      <h2 class="cta-title reveal">Lista para zarpar<br/><em>tu proxima aventura?</em></h2>
-      <p class="cta-sub reveal d1">Caleta Azul te espera. Escribe, llama o reserva en linea.</p>
+      <h2 class="cta-title reveal" data-i18n-html="cta.title">Lista para zarpar<br/><em>tu próxima aventura?</em></h2>
+      <p class="cta-sub reveal d1" data-i18n="cta.sub">Caleta Azul te espera. Escribe, llama o reserva en línea.</p>
       <div class="cta-buttons reveal d2">
-        <a href="#" class="btn-rust" onclick="openModal(event)">Hacer una Reserva</a>
-        <a href="tel:+50258131737" class="btn-outline">Llamar Ahora</a>
+        <a href="#" class="btn-rust" data-i18n="cta.btn1" onclick="openModal(event)">Hacer una Reserva</a>
+        <a href="tel:+50258131737" class="btn-outline" data-i18n="cta.btn2">Llamar Ahora</a>
       </div>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="foot-grid">
         <div>
-          <div class="foot-brand-name">
-            Caleta Azul
-            <small>Hotel · Costa del Pacifico de Guatemala</small>
-          </div>
-          <p class="foot-desc">
-            Hotel de familia en la Barra del Jiote, sobre la costa del Pacifico guatemalteco. Rodeados de manglar y mar abierto.
-          </p>
+          <div class="foot-brand-name">Caleta Azul<small data-i18n="nav.tagline">Hotel · Pacífico de Guatemala</small></div>
+          <p class="foot-desc" data-i18n="foot.desc">Hotel de familia en la Barra del Jiote, sobre la costa del Pacífico guatemalteco. Rodeados de manglar y mar abierto.</p>
           <div class="foot-socials">
             <a href="https://www.facebook.com/profile.php?id=100065647383071" target="_blank" class="foot-social">Fb</a>
             <a href="https://wa.me/50258131737" target="_blank" class="foot-social">Wa</a>
             <a href="https://www.caletaazul.com" target="_blank" class="foot-social">Web</a>
           </div>
         </div>
-
         <div class="foot-col">
-          <h4>Hotel</h4>
+          <h4 data-i18n="foot.hotel">Hotel</h4>
           <ul class="foot-links">
-            <li><a href="#sobre">Nuestra Historia</a></li>
+            <li><a href="#sobre" data-i18n="nav.nosotros">Nosotros</a></li>
             <li><a href="#bungalows">Bungalows</a></li>
-            <li><a href="#restaurante">Restaurante</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#restaurante" data-i18n="nav.restaurante">Restaurante</a></li>
+            <li><a href="#servicios" data-i18n="foot.services">Servicios</a></li>
+            <li><a href="#galeria" data-i18n="gallery.eyebrow">Galería</a></li>
           </ul>
         </div>
-
         <div class="foot-col">
-          <h4>Actividades</h4>
+          <h4 data-i18n="nav.actividades">Actividades</h4>
           <ul class="foot-links">
-            <li><a href="#actividades">Buceo en Pecios</a></li>
-            <li><a href="#actividades">Pesca Deportiva</a></li>
-            <li><a href="#actividades">Tour de Manglar</a></li>
-            <li><a href="#actividades">Liberacion de Tortugas</a></li>
-            <li><a href="#actividades">Kayak y Canales</a></li>
-            <li><a href="#actividades">Avistamiento de Aves</a></li>
+            <li><a href="#actividades" data-i18n="act6.name">Buceo en Pecios</a></li>
+            <li><a href="#actividades" data-i18n="act2.name">Pesca en Alta Mar</a></li>
+            <li><a href="#actividades" data-i18n="act1.name">Tour de Manglar</a></li>
+            <li><a href="#actividades" data-i18n="act3.name">Liberación de Tortugas</a></li>
+            <li><a href="#actividades" data-i18n="act4.name">Kayak por los Canales</a></li>
           </ul>
         </div>
-
         <div class="foot-col">
-          <h4>Contacto</h4>
-          <div class="foot-contact-row">
-            <span class="fclabel">Tel</span>
-            <div>
-              <div><a href="tel:+50258131737">+502 5813-1737</a></div>
-              <div><a href="tel:+50241347273">+502 4134-7273</a></div>
-            </div>
-          </div>
-          <div class="foot-contact-row">
-            <span class="fclabel">Email</span>
-            <a href="mailto:info@caletaazul.com">info@caletaazul.com</a>
-          </div>
-          <div class="foot-contact-row">
-            <span class="fclabel">Lugar</span>
-            <span>Km. 144, Barra del Jiote, Las Lisas, Jutiapa</span>
-          </div>
+          <h4 data-i18n="contact.title">Contacto</h4>
+          <div class="foot-contact-row"><span class="fclabel" data-i18n="contact.tel">Tel</span><div><div><a href="tel:+50258131737">+502 5813-1737</a></div><div><a href="tel:+50241347273">+502 4134-7273</a></div></div></div>
+          <div class="foot-contact-row"><span class="fclabel" data-i18n="contact.email">Email</span><a href="mailto:info@caletaazul.com">info@caletaazul.com</a></div>
+          <div class="foot-contact-row"><span class="fclabel" data-i18n="contact.place">Lugar</span><span data-i18n="contact.address">Km. 144, Barra del Jiote, Las Lisas, Santa Rosa</span></div>
         </div>
       </div>
-
       <div class="foot-bottom">
-        <span>© 2025 Hotel Caleta Azul · Todos los derechos reservados</span>
-        <span>Costa del Pacifico de Guatemala</span>
+        <span data-i18n="foot.copy">© 2025 Hotel Caleta Azul · Todos los derechos reservados</span>
+        <span>Costa del Pacífico de Guatemala</span>
       </div>
     </div>
   </footer>
 
-  <!-- ── MODAL RESERVA ──────────────────────────────────────── -->
+  <!-- MODAL -->
   <div class="overlay" id="modal" onclick="closeModalOutside(event)">
     <div class="modal">
       <button class="modal-x" onclick="closeModal()">&#x2715;</button>
-      <h3 class="modal-title">Reservar</h3>
-      <p class="modal-sub">Completa el formulario y nos comunicamos en menos de 24 horas.</p>
-
-      <!-- FORMSPREE: Crea una cuenta gratis en formspree.io, luego reemplaza
-           "YOUR_FORM_ID" con tu ID real (ej. xvoejrkp). Sin ese cambio el
-           form no enviara emails. El resto funciona sin servidor. -->
+      <h3 class="modal-title" data-i18n="nav.reservar">Reservar</h3>
+      <p class="modal-sub" data-i18n="modal.sub">Completa el formulario y nos comunicamos en menos de 24 horas.</p>
       <form id="reservaForm">
         <div class="f-row">
-          <div class="f-group">
-            <label>Nombre</label>
-            <input type="text" name="nombre" placeholder="Tu nombre" required />
-          </div>
-          <div class="f-group">
-            <label>Apellido</label>
-            <input type="text" name="apellido" placeholder="Tu apellido" required />
-          </div>
+          <div class="f-group"><label data-i18n="form.fname">Nombre</label><input type="text" name="nombre" placeholder="..." required /></div>
+          <div class="f-group"><label data-i18n="form.lname">Apellido</label><input type="text" name="apellido" placeholder="..." required /></div>
         </div>
-        <div class="f-group">
-          <label>Correo electronico</label>
-          <input type="email" name="email" placeholder="tu@correo.com" required />
-        </div>
-        <div class="f-group">
-          <label>Telefono / WhatsApp</label>
-          <input type="tel" name="telefono" placeholder="+502 0000-0000" />
+        <div class="f-group"><label data-i18n="form.email">Correo electrónico</label><input type="email" name="email" placeholder="tu@correo.com" required /></div>
+        <div class="f-group"><label data-i18n="form.phone">Teléfono / WhatsApp</label><input type="tel" name="telefono" placeholder="+502 0000-0000" /></div>
+        <div class="f-row">
+          <div class="f-group"><label data-i18n="form.checkin">Llegada</label><input type="date" name="llegada" required /></div>
+          <div class="f-group"><label data-i18n="form.checkout">Salida</label><input type="date" name="salida" required /></div>
         </div>
         <div class="f-row">
           <div class="f-group">
-            <label>Llegada</label>
-            <input type="date" name="llegada" required />
-          </div>
-          <div class="f-group">
-            <label>Salida</label>
-            <input type="date" name="salida" required />
-          </div>
-        </div>
-        <div class="f-row">
-          <div class="f-group">
-            <label>Bungalow</label>
+            <label data-i18n="form.bungalow">Bungalow</label>
             <select name="bungalow">
-              <option value="">Seleccionar...</option>
-              <option>Bungalow Doble</option>
-              <option>Bungalow Familiar</option>
-              <option>Alquiler completo / Evento</option>
+              <option value="" data-i18n="form.select">Seleccionar...</option>
+              <option data-i18n="r1.name">Bungalow Doble</option>
+              <option data-i18n="r2.name">Bungalow Familiar</option>
+              <option data-i18n="r3.name">Alquiler Completo</option>
             </select>
           </div>
           <div class="f-group">
-            <label>Huespedes</label>
+            <label data-i18n="form.guests">Huéspedes</label>
             <select name="huespedes">
-              <option>1 persona</option>
-              <option>2 personas</option>
-              <option>3 personas</option>
-              <option>4 personas</option>
-              <option>5 o mas</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
             </select>
           </div>
         </div>
         <div class="f-group">
-          <label>Actividades de interes</label>
+          <label data-i18n="form.activities">Actividades de interés</label>
           <select name="actividades">
-            <option value="">Sin preferencia</option>
-            <option>Buceo en pecios</option>
-            <option>Pesca deportiva</option>
-            <option>Tour de manglar</option>
-            <option>Liberacion de tortugas</option>
-            <option>Varias actividades</option>
+            <option value="" data-i18n="form.nopref">Sin preferencia</option>
+            <option data-i18n="act6.name">Buceo en Pecios</option>
+            <option data-i18n="act2.name">Pesca en Alta Mar</option>
+            <option data-i18n="act1.name">Tour de Manglar</option>
+            <option data-i18n="act3.name">Liberación de Tortugas</option>
+            <option data-i18n="form.several">Varias actividades</option>
           </select>
         </div>
-        <div class="f-group">
-          <label>Mensaje (opcional)</label>
-          <textarea name="mensaje" placeholder="Solicitudes especiales, bodas, grupos..."></textarea>
-        </div>
-        <button type="submit" class="f-submit" id="submitBtn">Enviar solicitud</button>
-        <p class="f-note">
-          O escribenos directo al
-          <a href="https://wa.me/50258131737" target="_blank">WhatsApp +502 5813-1737</a>
-        </p>
+        <div class="f-group"><label data-i18n="form.msg">Mensaje (opcional)</label><textarea name="mensaje" placeholder="..."></textarea></div>
+        <button type="submit" class="f-submit" id="submitBtn" data-i18n="form.send">Enviar solicitud</button>
+        <p class="f-note" data-i18n-html="form.note">O escríbenos al <a href="https://wa.me/50258131737" target="_blank">WhatsApp +502 5813-1737</a></p>
       </form>
     </div>
   </div>
 
-  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
   <script>
-    /* scroll bar + nav */
-    const bar = document.getElementById('scrollBar');
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      bar.style.width = (pct * 100) + '%';
-      nav.classList.toggle('solid', window.scrollY > 60);
-    }, { passive: true });
-
-    /* reveal */
-    const reveals = document.querySelectorAll('.reveal');
-    new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('up'); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }).observe
-      ? (() => {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
-        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-        reveals.forEach(el => io.observe(el));
-      })() : reveals.forEach(el => el.classList.add('up'));
-
-    /* hero slideshow */
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots   = document.querySelectorAll('.hero-dot');
-    let current  = 0, timer;
-
-    function goToSlide(n) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = n;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-      clearInterval(timer);
-      timer = setInterval(nextSlide, 5000);
+  /* ── Translations ──────────────────────────────────────── */
+  const T = {
+    es: {
+      'nav.tagline':'Hotel · Pacífico de Guatemala','nav.nosotros':'Nosotros','nav.actividades':'Actividades',
+      'nav.restaurante':'Restaurante','nav.llegar':'Cómo Llegar','nav.reservar':'Reservar',
+      'hero.label':'Barra del Jiote, Las Lisas, Santa Rosa',
+      'hero.title1':'Manglar,','hero.title2':'mar y aventura',
+      'hero.sub':'Rodeados de selva de manglar y el Pacífico guatemalteco, en la Barra del Jiote te esperan bungalows tranquilos, mariscos frescos y experiencias que no encuentras en ninguna otra parte.',
+      'hero.cta1':'Hacer una Reserva','hero.cta2':'Ver Actividades',
+      'strip.1':'Pecios para bucear','strip.2':'Actividades únicas','strip.3':'Ruta al Pacífico','strip.4':'Temporada de buceo',
+      'about.pill':'Hotel de familia · Desde los 90s','about.eyebrow':'Nuestra historia',
+      'about.title':'Donde el manglar<br/><em>abraza el Pacífico</em>',
+      'about.p1':'Caleta Azul nació del descubrimiento de un rincón especial en la Barra del Jiote, sobre la costa del Pacífico guatemalteco. Un lugar rodeado de selva de manglar y mar abierto, lejos del ruido y cerca de lo que importa.',
+      'about.p2':'Es un hotel de familia, gestionado con atención personal y genuina. Aquí los pescadores son los vecinos, la chef conoce a quienes le traen los camarones, y el manglar que rodea el lugar es el jardín natural que nadie plantó.',
+      'about.f1t':'Rodeado de manglar y mar','about.f1d':'La Barra del Jiote, entre la selva y el Pacífico abierto',
+      'about.f2t':'Hotel de familia','about.f2d':'Servicio personal y atención directa desde el primer día',
+      'about.f3t':'Conservación activa','about.f3d':'Programa de liberación de tortugas marinas en peligro de extinción',
+      'rooms.eyebrow':'Alojamiento','rooms.title':'Nuestros<br/><em>Bungalows</em>',
+      'rooms.sub':'Cada bungalow tiene terraza privada con hamaca, ventilación natural y acceso directo al ambiente del litoral.',
+      'r1.eye':'Para 2 personas','r1.name':'Bungalow Doble','r1.price':'por noche',
+      'r1.desc':'Cama matrimonial o imperial, baño privado con bañera, aire acondicionado y terraza con hamaca. Sencillo, cómodo y justo lo que se necesita después de un día en el agua.',
+      'r2.eye':'Para 4 personas','r2.name':'Bungalow Familiar','r2.price':'Consultar<small>precio por temporada</small>',
+      'r2.desc':'Dos habitaciones para familias o grupos de amigos. Camas matrimoniales e individuales, terrazas compartidas y espacio para descansar entre una aventura y la siguiente.',
+      'r3.eye':'Bodas y eventos','r3.name':'Alquiler Completo','r3.price':'grupos y eventos',
+      'r3.desc':'El hotel completo para bodas, aniversarios o retiros. Cocina exclusiva, decoración, actividades coordinadas y la puesta de sol del Pacífico de fondo.',
+      'tag.ac':'Aire acondicionado','tag.terrace':'Terraza','tag.hammock':'Hamaca','tag.tub':'Bañera',
+      'tag.2rooms':'2 habitaciones','tag.terraces':'Terrazas','tag.hammocks':'Hamacas',
+      'tag.fullhotel':'Todo el hotel','tag.chef':'Chef exclusivo','tag.activities':'Actividades','tag.transport':'Transporte',
+      'cta.book':'Reservar','cta.ask':'Consultar','cta.quote':'Cotizar',
+      'act.eyebrow':'Aventura','act.title':'Lo que te espera<br/><em>afuera</em>',
+      'act.sub':'El Pacífico guatemalteco tiene mucho más que playa. Nuestros guías y capitanes te llevan a descubrirlo.',
+      'act1.tag':'Ecoturismo','act1.name':'Tour de Manglar','act1.desc':'Expediciones de día y noche por la selva de manglar virgen. Flora y fauna en su hábitat natural, canales que nadie más conoce.',
+      'act2.tag':'Pesca deportiva','act2.name':'Pesca en Alta Mar','act2.desc':'Marlin, dorado y pez vela abundan en estas aguas. Capitanes con años de experiencia, equipo profesional y cebo vivo incluido.',
+      'act3.tag':'Conservación','act3.name':'Liberación de Tortugas','act3.desc':'Participa en la liberación de crías de tortuga marina. Una experiencia que cambia la perspectiva.',
+      'act4.name':'Kayak por los Canales','act4.desc':'Navega a tu ritmo los canales del manglar. Silencio, naturaleza y avistamiento de aves en estado puro.',
+      'act5.tag':'Naturaleza','act5.name':'Avistamiento de Aves','act5.desc':'Las playas y canales de la costa albergan decenas de especies de aves marinas y canoras. Salidas con binoculares al amanecer.',
+      'act6.tag':'Buceo · Dic - May','act6.name':'Buceo en Pecios del Pacífico','act6.desc':'Dos barcos hundidos yacen en el fondo del Pacífico cerca de la costa. Corales, cardúmenes y la historia de naufragios reales. Personal certificado, equipo incluido. Temporada: diciembre a mayo.',
+      'rest.eyebrow':'Gastronomía','rest.title':'Del mar<br/><em>a la mesa</em>',
+      'rest.p1':'La cocina de Caleta Azul es uno de los secretos mejor guardados de la costa. Los pescadores de la Barra traen el marisco cada mañana, y la chef de la familia lo convierte en platillos que los huéspedes no olvidan.',
+      'rest.p2':'Cocina caribeña de mar con ingredientes del Pacífico guatemalteco. Sin intermediarios, sin congelados.',
+      'menu.1':'Ceviche de camarón y pescado fresco','menu.2':'Mariscos a la plancha con hierbas del litoral',
+      'menu.3':'Tapado caribeño de mariscos','menu.4':'Cóctel de mariscos estilo Pacífico',
+      'menu.5':'Desayunos típicos guatemaltecos','menu.6':'Bar con cócteles y refrescos naturales',
+      'svc.eyebrow':'Instalaciones','svc.title':'Todo lo que necesitas',
+      'svc1.name':'Piscina','svc1.desc':'Piscina principal y para niños, con vista al Pacífico',
+      'svc2.name':'Restaurante y Bar','svc2.desc':'Cocina de mariscos frescos diarios, servicio a la habitación disponible',
+      'svc3.name':'Transporte en Lancha','svc3.desc':'Traslados incluidos y transporte a Antigua o Panajachel',
+      'svc4.desc':'Conexión a internet y servicio telefónico en todas las áreas',
+      'svc5.name':'Seguridad 24h','svc5.desc':'Vigilancia continua y caja de seguridad en cada bungalow',
+      'svc6.name':'Lavandería','svc6.desc':'Servicio disponible a solicitud durante toda la estadía',
+      'svc7.name':'Parqueo Vigilado','svc7.desc':'Parqueo seguro en el embarcadero de Sarampana',
+      'svc8.name':'Eventos Especiales','svc8.desc':'Bodas y retiros con ambientación personalizada al atardecer',
+      'test.eyebrow':'Huéspedes','test.title':'Lo que dicen<br/><em>quienes ya estuvieron</em>',
+      'test1.quote':'"La comida fue absolutamente memorable. Mariscos frescos que los propios pescadores traen cada mañana, preparados con una calidez que no encuentras en ningún hotel de cadena."',
+      'test1.origin':'Ciudad de Guatemala',
+      'test2.quote':'"El hotel parece un paraíso sacado de una película. Verde exuberante, el azul del mar, y una paz absoluta que el estrés de la ciudad te hace olvidar que existe."',
+      'test2.origin':'TripAdvisor · Reseña verificada',
+      'test3.quote':'"La liberación de tortugas fue una de las experiencias más emocionantes de nuestra vida. El equipo es extraordinario. Volveremos cada año."',
+      'test3.origin':'Guatemala · Familia',
+      'llegar.eyebrow':'Ubicación','llegar.title':'Llegar es<br/><em>parte del viaje</em>',
+      'llegar.sub':'A 2.5 horas de la Ciudad de Guatemala. La travesía final en lancha por los canales del manglar ya es una experiencia en sí misma.',
+      'step1.title':'Ciudad de Guatemala','step1.body':'Toma la carretera al Pacífico hacia Chiquimulilla. Aproximadamente 2.5 horas en condiciones normales.',
+      'step2.title':'Embarcadero de Sarampana','step2.body':'Llega al Km. 144 de la Ruta al Pacífico. Deja tu vehículo en el embarcadero de Sarampana.','step2.note':'Parqueo vigilado aprox. Q30 / día',
+      'step3.title':'Travesía en Lancha','step3.body':'Aborda la lancha hacia la Barra del Jiote. El recorrido toma unos 30 minutos por canales de manglar.','step3.note':'Lancha aprox. Q75 – Q150 por viaje',
+      'step4.title':'Bienvenido a Caleta Azul','step4.body':'Llegas directo al muelle del hotel. El equipo te estará esperando.',
+      'contact.title':'Contacto','contact.tel':'Tel.','contact.email':'Correo','contact.web':'Web','contact.place':'Lugar',
+      'contact.address':'Km. 144, Barra del Jiote, Las Lisas, Santa Rosa, Guatemala',
+      'contact.wa':'Escribir por WhatsApp',
+      'gallery.eyebrow':'Galería','gallery.title':'El lugar<br/><em>en imágenes</em>','gallery.fb':'Ver en Facebook',
+      'cta.title':'Lista para zarpar<br/><em>tu próxima aventura?</em>',
+      'cta.sub':'Caleta Azul te espera. Escribe, llama o reserva en línea.',
+      'cta.btn1':'Hacer una Reserva','cta.btn2':'Llamar Ahora',
+      'foot.desc':'Hotel de familia en la Barra del Jiote, sobre la costa del Pacífico guatemalteco. Rodeados de manglar y mar abierto.',
+      'foot.hotel':'Hotel','foot.services':'Servicios','foot.copy':'© 2025 Hotel Caleta Azul · Todos los derechos reservados',
+      'modal.sub':'Completa el formulario y nos comunicamos en menos de 24 horas.',
+      'form.fname':'Nombre','form.lname':'Apellido','form.email':'Correo electrónico',
+      'form.phone':'Teléfono / WhatsApp','form.checkin':'Llegada','form.checkout':'Salida',
+      'form.bungalow':'Bungalow','form.guests':'Huéspedes','form.activities':'Actividades de interés',
+      'form.msg':'Mensaje (opcional)','form.send':'Enviar solicitud','form.select':'Seleccionar...',
+      'form.nopref':'Sin preferencia','form.several':'Varias actividades',
+      'form.note':'O escríbenos al <a href="https://wa.me/50258131737" target="_blank">WhatsApp +502 5813-1737</a>',
+    },
+    en: {
+      'nav.tagline':'Hotel · Pacific Coast of Guatemala','nav.nosotros':'About','nav.actividades':'Activities',
+      'nav.restaurante':'Restaurant','nav.llegar':'Getting Here','nav.reservar':'Book Now',
+      'hero.label':'Barra del Jiote, Las Lisas, Santa Rosa',
+      'hero.title1':'Mangrove,','hero.title2':'sea & adventure',
+      'hero.sub':'Surrounded by mangrove jungle and the Guatemalan Pacific, Barra del Jiote offers peaceful bungalows, fresh seafood and experiences you won\'t find anywhere else.',
+      'hero.cta1':'Book a Stay','hero.cta2':'See Activities',
+      'strip.1':'Shipwrecks to dive','strip.2':'Unique activities','strip.3':'Pacific Highway','strip.4':'Diving season',
+      'about.pill':'Family Hotel · Since the 90s','about.eyebrow':'Our Story',
+      'about.title':'Where the mangrove<br/><em>embraces the Pacific</em>',
+      'about.p1':'Caleta Azul grew from the discovery of a special corner in Barra del Jiote, on Guatemala\'s Pacific coast. A place surrounded by mangrove jungle and open sea, far from the noise and close to what matters.',
+      'about.p2':'It\'s a family hotel, managed with personal and genuine care. Here the fishermen are the neighbors, the chef knows who brings her shrimp every morning, and the mangrove surrounding the place is the natural garden nobody planted.',
+      'about.f1t':'Surrounded by mangrove and sea','about.f1d':'Barra del Jiote, between the jungle and the open Pacific',
+      'about.f2t':'Family hotel','about.f2d':'Personal service and direct attention from day one',
+      'about.f3t':'Active conservation','about.f3d':'Sea turtle release program for endangered species',
+      'rooms.eyebrow':'Accommodation','rooms.title':'Our<br/><em>Bungalows</em>',
+      'rooms.sub':'Each bungalow has a private terrace with hammock, natural ventilation and direct access to the coastal environment.',
+      'r1.eye':'For 2 guests','r1.name':'Double Bungalow','r1.price':'per night',
+      'r1.desc':'Queen or king bed, private bathroom with bathtub, air conditioning and terrace with hammock. Simple, comfortable and just what you need after a day on the water.',
+      'r2.eye':'For 4 guests','r2.name':'Family Bungalow','r2.price':'Inquire<small>seasonal pricing</small>',
+      'r2.desc':'Two rooms for families or groups of friends. Queen and single beds, shared terraces and space to rest between one adventure and the next.',
+      'r3.eye':'Weddings & events','r3.name':'Full Rental','r3.price':'groups & events',
+      'r3.desc':'The entire hotel for weddings, anniversaries or retreats. Private chef, decoration, coordinated activities and a Pacific sunset backdrop.',
+      'tag.ac':'Air conditioning','tag.terrace':'Terrace','tag.hammock':'Hammock','tag.tub':'Bathtub',
+      'tag.2rooms':'2 bedrooms','tag.terraces':'Terraces','tag.hammocks':'Hammocks',
+      'tag.fullhotel':'Full hotel','tag.chef':'Private chef','tag.activities':'Activities','tag.transport':'Transport',
+      'cta.book':'Book','cta.ask':'Inquire','cta.quote':'Get a Quote',
+      'act.eyebrow':'Adventure','act.title':'What awaits you<br/><em>outside</em>',
+      'act.sub':'The Guatemalan Pacific has much more than beach. Our guides and captains take you to discover it.',
+      'act1.tag':'Ecotourism','act1.name':'Mangrove Tour','act1.desc':'Day and night expeditions through virgin mangrove jungle. Flora and fauna in their natural habitat, canals no one else knows.',
+      'act2.tag':'Sport fishing','act2.name':'Deep Sea Fishing','act2.desc':'Marlin, mahi-mahi and sailfish abound in these waters. Experienced captains, professional gear and live bait included.',
+      'act3.tag':'Conservation','act3.name':'Turtle Release','act3.desc':'Participate in releasing endangered sea turtle hatchlings. A perspective-changing experience.',
+      'act4.name':'Canal Kayaking','act4.desc':'Paddle through mangrove canals at your own pace. Silence, nature and birdwatching in its purest form.',
+      'act5.tag':'Nature','act5.name':'Birdwatching','act5.desc':'The coastal beaches and canals are home to dozens of seabird and songbird species. Early morning outings with binoculars.',
+      'act6.tag':'Diving · Dec - May','act6.name':'Pacific Shipwreck Diving','act6.desc':'Two sunken ships lie on the Pacific floor near the coast. Coral, fish schools and the history of real shipwrecks. Certified staff, equipment included. Season: December to May.',
+      'rest.eyebrow':'Food & Drink','rest.title':'From the sea<br/><em>to the table</em>',
+      'rest.p1':'Caleta Azul\'s kitchen is one of the best-kept secrets on the coast. Local fishermen bring in the catch every morning, and the family chef turns it into dishes guests never forget.',
+      'rest.p2':'Caribbean seafood cuisine with ingredients from the Guatemalan Pacific. No middlemen, no frozen food.',
+      'menu.1':'Shrimp and fresh fish ceviche','menu.2':'Grilled seafood with coastal herbs',
+      'menu.3':'Caribbean seafood tapado','menu.4':'Pacific-style seafood cocktail',
+      'menu.5':'Traditional Guatemalan breakfasts','menu.6':'Bar with tropical cocktails and natural drinks',
+      'svc.eyebrow':'Facilities','svc.title':'Everything you need',
+      'svc1.name':'Swimming Pool','svc1.desc':'Main pool and kids\' pool, with views of the Pacific',
+      'svc2.name':'Restaurant & Bar','svc2.desc':'Fresh daily seafood kitchen, room service available',
+      'svc3.name':'Boat Transport','svc3.desc':'Transfers included, plus transport to Antigua or Panajachel',
+      'svc4.desc':'Internet and telephone service throughout the property',
+      'svc5.name':'24h Security','svc5.desc':'Continuous surveillance and in-room safe in every bungalow',
+      'svc6.name':'Laundry','svc6.desc':'Service available on request throughout your stay',
+      'svc7.name':'Secure Parking','svc7.desc':'Safe parking at Sarampana embarcadero',
+      'svc8.name':'Special Events','svc8.desc':'Weddings and retreats with custom sunset ambiance',
+      'test.eyebrow':'Guests','test.title':'What those who\'ve<br/><em>been there say</em>',
+      'test1.quote':'"The food was absolutely unforgettable. Fresh seafood brought every morning by the local fishermen, prepared with a warmth you won\'t find at any chain hotel."',
+      'test1.origin':'Guatemala City',
+      'test2.quote':'"The hotel looks like paradise from a movie. Lush green, the blue of the sea, and an absolute peace that makes you forget city stress even exists."',
+      'test2.origin':'TripAdvisor · Verified review',
+      'test3.quote':'"The turtle release was one of the most moving experiences of our lives. The team is extraordinary. We\'ll be back every year."',
+      'test3.origin':'Guatemala · Family',
+      'llegar.eyebrow':'Location','llegar.title':'Getting here is<br/><em>part of the journey</em>',
+      'llegar.sub':'Just 2.5 hours from Guatemala City. The final boat ride through the mangrove canals is already an experience in itself.',
+      'step1.title':'Guatemala City','step1.body':'Take the Pacific highway toward Chiquimulilla. Approximately 2.5 hours under normal conditions.',
+      'step2.title':'Sarampana Embarcadero','step2.body':'Arrive at Km. 144 on the Pacific Route. Leave your vehicle at the Sarampana embarcadero.','step2.note':'Secure parking approx. Q30 / day',
+      'step3.title':'Boat Crossing','step3.body':'Board the boat to Barra del Jiote. The ride takes about 30 minutes through mangrove canals.','step3.note':'Boat approx. Q75 – Q150 per trip',
+      'step4.title':'Welcome to Caleta Azul','step4.body':'You arrive directly at the hotel dock. The team will be there to welcome you.',
+      'contact.title':'Contact','contact.tel':'Phone','contact.email':'Email','contact.web':'Web','contact.place':'Location',
+      'contact.address':'Km. 144, Barra del Jiote, Las Lisas, Santa Rosa, Guatemala',
+      'contact.wa':'Message on WhatsApp',
+      'gallery.eyebrow':'Gallery','gallery.title':'The place<br/><em>in pictures</em>','gallery.fb':'See on Facebook',
+      'cta.title':'Ready to set sail on<br/><em>your next adventure?</em>',
+      'cta.sub':'Caleta Azul is waiting. Write, call or book online.',
+      'cta.btn1':'Book a Stay','cta.btn2':'Call Now',
+      'foot.desc':'Family hotel in Barra del Jiote, on the Pacific coast of Guatemala. Surrounded by mangrove and open sea.',
+      'foot.hotel':'Hotel','foot.services':'Services','foot.copy':'© 2025 Hotel Caleta Azul · All rights reserved',
+      'modal.sub':'Fill out the form and we\'ll get back to you within 24 hours.',
+      'form.fname':'First name','form.lname':'Last name','form.email':'Email address',
+      'form.phone':'Phone / WhatsApp','form.checkin':'Check-in','form.checkout':'Check-out',
+      'form.bungalow':'Bungalow','form.guests':'Guests','form.activities':'Activities of interest',
+      'form.msg':'Message (optional)','form.send':'Send request','form.select':'Select...',
+      'form.nopref':'No preference','form.several':'Multiple activities',
+      'form.note':'Or write us directly on <a href="https://wa.me/50258131737" target="_blank">WhatsApp +502 5813-1737</a>',
     }
-    function nextSlide() {
-      goToSlide((current + 1) % slides.length);
-    }
-    timer = setInterval(nextSlide, 5000);
+  };
 
-    /* modal */
-    function openModal(e) {
-      if (e) e.preventDefault();
-      document.getElementById('modal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function closeModalOutside(e) {
-      if (e.target === e.currentTarget) closeModal();
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  let currentLang = localStorage.getItem('lang') || 'es';
 
-    /* form — Formspree integration
-       Reemplaza YOUR_FORM_ID con el ID de tu formulario en formspree.io
-       Ejemplo: https://formspree.io/f/xvoejrkp  */
-    const FORMSPREE_ID = 'YOUR_FORM_ID';
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
 
-    document.getElementById('reservaForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const form  = e.target;
-      const btn   = document.getElementById('submitBtn');
-      const orig  = btn.textContent;
-
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-          method:  'POST',
-          body:    new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-          btn.textContent = 'Solicitud enviada — te contactamos pronto';
-          btn.style.background = '#2D6A4F';
-          setTimeout(() => {
-            closeModal();
-            btn.textContent = orig;
-            btn.style.background = '';
-            btn.disabled = false;
-            form.reset();
-          }, 3500);
-        } else {
-          const data = await res.json();
-          throw new Error(data.error || 'Error del servidor');
-        }
-      } catch (err) {
-        btn.textContent = 'Error al enviar — intenta de nuevo';
-        btn.style.background = '#8B2020';
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.style.background = '';
-        }, 3500);
-        console.error('Formspree error:', err);
-      }
+    // text nodes
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (T[lang][k] !== undefined) el.textContent = T[lang][k];
     });
+    // innerHTML nodes (for tags with <em>, <br/>, <a>)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const k = el.getAttribute('data-i18n-html');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+
+    // language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  // init on load
+  setLang(currentLang);
+
+  /* ── Scroll bar + Nav ── */
+  const bar = document.getElementById('scrollBar');
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    bar.style.width = (pct * 100) + '%';
+    nav.classList.toggle('solid', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── Reveal on scroll ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── Hero slideshow ── */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  let current  = 0, timer;
+  function goToSlide(n) {
+    slides[current].classList.remove('active'); dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active'); dots[current].classList.add('active');
+    clearInterval(timer); timer = setInterval(nextSlide, 5000);
+  }
+  function nextSlide() { goToSlide((current + 1) % slides.length); }
+  timer = setInterval(nextSlide, 5000);
+
+  /* ── Modal ── */
+  function openModal(e) { if(e) e.preventDefault(); document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+  function closeModalOutside(e) { if(e.target===e.currentTarget) closeModal(); }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+  /* ── Formspree form ──
+     Replace YOUR_FORM_ID with your real Formspree ID from formspree.io */
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
+  document.getElementById('reservaForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const orig = btn.textContent;
+    btn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST', body: new FormData(e.target), headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = currentLang === 'es' ? 'Solicitud enviada — te contactamos pronto' : 'Request sent — we\'ll be in touch soon';
+        btn.style.background = '#2D6A4F';
+        setTimeout(() => { closeModal(); btn.textContent=orig; btn.style.background=''; btn.disabled=false; e.target.reset(); }, 3500);
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = currentLang === 'es' ? 'Error — intenta de nuevo' : 'Error — please try again';
+      btn.style.background = '#8B2020'; btn.disabled = false;
+      setTimeout(() => { btn.textContent=orig; btn.style.background=''; }, 3500);
+    }
+  });
   </script>
 </body>
 </html>
