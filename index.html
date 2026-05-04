@@ -332,7 +332,7 @@
     .foot-links a { font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
     .foot-links a:hover { color: rgba(255,255,255,0.85); }
     .foot-contact-row { display: flex; gap: 0.6rem; margin-bottom: 0.75rem; align-items: flex-start; }
-    .fclabel { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); width: 44px; min-width: 44px; padding-top: 2px; }
+    .fclabel { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); width: 58px; min-width: 58px; padding-top: 2px; }
     .foot-contact-row a, .foot-contact-row span { font-size: 0.8rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
     .foot-contact-row a:hover { color: rgba(255,255,255,0.85); }
     .foot-bottom { padding-top: 2rem; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 0.5rem; }
@@ -404,14 +404,14 @@
     <div class="hero-grad"></div>
     <div class="container">
       <div class="hero-content">
-        <span class="hero-label">
-          <span data-i18n="hero.label">Barra del Jiote, Las Lisas, Santa Rosa</span>
-        </span>
         <h1 class="hero-title">
           <span data-i18n="hero.title1">Manglar,</span>
           <span data-i18n="hero.title2">mar y aventura</span>
         </h1>
         <p class="hero-sub" data-i18n="hero.sub">Rodeados de selva de manglar y el Pacífico guatemalteco, en la Barra del Jiote te esperan bungalows tranquilos, mariscos frescos y experiencias que no encuentras en ninguna otra parte.</p>
+        <span class="hero-label" style="margin-bottom:1.6rem;">
+          <span data-i18n="hero.label">Barra del Jiote, Las Lisas, Santa Rosa</span>
+        </span>
         <div class="hero-buttons">
           <a href="#" class="btn-rust" data-i18n="hero.cta1" onclick="openModal(event)">Hacer una Reserva</a>
           <a href="#actividades" class="btn-outline" data-i18n="hero.cta2">Ver Actividades</a>
@@ -473,6 +473,26 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" style="background: var(--ocean); padding: var(--pad) 0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-eyebrow light reveal" data-i18n="video.eyebrow">Historia</span>
+        <h2 class="section-title light reveal d1" data-i18n-html="video.title">Conoce nuestra<br/><em>historia</em></h2>
+        <div class="rule sand reveal d2" style="margin:1rem auto 0;"></div>
+      </div>
+      <div class="reveal d2" style="position:relative; padding-bottom:56.25%; height:0; border-radius:10px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.4);">
+        <iframe
+          src="https://www.youtube.com/embed/i00hVosvWu4"
+          title="Historia de Hotel Caleta Azul"
+          style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </section>
@@ -888,6 +908,7 @@
       'about.f1t':'Rodeado de manglar y mar','about.f1d':'La Barra del Jiote, entre la selva y el Pacífico abierto',
       'about.f2t':'Hotel de familia','about.f2d':'Servicio personal y atención directa desde el primer día',
       'about.f3t':'Conservación activa','about.f3d':'Programa de liberación de tortugas marinas en peligro de extinción',
+      'video.eyebrow':'Historia','video.title':'Conoce nuestra<br/><em>historia</em>',
       'rooms.eyebrow':'Alojamiento','rooms.title':'Nuestros<br/><em>Bungalows</em>',
       'rooms.sub':'Cada bungalow tiene terraza privada con hamaca, ventilación natural y acceso directo al ambiente del litoral.',
       'r1.eye':'Para 2 personas','r1.name':'Bungalow Doble','r1.price':'por noche',
@@ -968,6 +989,7 @@
       'about.f1t':'Surrounded by mangrove and sea','about.f1d':'Barra del Jiote, between the jungle and the open Pacific',
       'about.f2t':'Family hotel','about.f2d':'Personal service and direct attention from day one',
       'about.f3t':'Active conservation','about.f3d':'Sea turtle release program for endangered species',
+      'video.eyebrow':'Our Story','video.title':'The story<br/><em>behind the hotel</em>',
       'rooms.eyebrow':'Accommodation','rooms.title':'Our<br/><em>Bungalows</em>',
       'rooms.sub':'Each bungalow has a private terrace with hammock, natural ventilation and direct access to the coastal environment.',
       'r1.eye':'For 2 guests','r1.name':'Double Bungalow','r1.price':'per night',
